@@ -192,3 +192,12 @@ a:hover {
   );
   mask-mode: luminance;
 }
+.vignette-mask {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, black);
+  z-index: 2;
+  pointer-events: none;
+}
