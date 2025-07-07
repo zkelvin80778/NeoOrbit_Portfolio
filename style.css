@@ -25,23 +25,15 @@ nav a:hover {
   color: #40C4FF;
 }
 header {
-  background-image: url('assets/Earth-Mars.png');
-  background-size: cover;
-  background-position: center;
   height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 2rem;
-  position: relative;
   overflow: hidden;
-  
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0.7) 20%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 80%, rgba(0,0,0,0) 100%);
-  mask-mode: luminance;
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0.7) 20%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 80%, rgba(0,0,0,0) 100%);
-  -webkit-mask-mode: luminance;
 }
 header img {
   width: 100px;
@@ -104,4 +96,60 @@ a {
 }
 a:hover {
   color: #40C4FF;
+}
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/Earth-Mars.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.99) 1%,
+    rgba(0, 0, 0, 0.98) 2%,
+    rgba(0, 0, 0, 0.97) 3%,
+    rgba(0, 0, 0, 0.96) 4%,
+    rgba(0, 0, 0, 0.95) 5%,
+    rgba(0, 0, 0, 0.94) 6%,
+    rgba(0, 0, 0, 0.93) 7%,
+    rgba(0, 0, 0, 0.92) 8%,
+    rgba(0, 0, 0, 0.91) 9%,
+    rgba(0, 0, 0, 0.9) 10%,
+    rgba(0, 0, 0, 0.85) 15%,
+    rgba(0, 0, 0, 0.7) 25%,
+    rgba(0, 0, 0, 0.5) 35%,
+    rgba(0, 0, 0, 0.3) 45%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.05) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-mode: luminance;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.99) 1%,
+    rgba(0, 0, 0, 0.98) 2%,
+    rgba(0, 0, 0, 0.97) 3%,
+    rgba(0, 0, 0, 0.96) 4%,
+    rgba(0, 0, 0, 0.95) 5%,
+    rgba(0, 0, 0, 0.94) 6%,
+    rgba(0, 0, 0, 0.93) 7%,
+    rgba(0, 0, 0, 0.92) 8%,
+    rgba(0, 0, 0, 0.91) 9%,
+    rgba(0, 0, 0, 0.9) 10%,
+    rgba(0, 0, 0, 0.85) 15%,
+    rgba(0, 0, 0, 0.7) 25%,
+    rgba(0, 0, 0, 0.5) 35%,
+    rgba(0, 0, 0, 0.3) 45%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.05) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-mode: luminance;
 }
