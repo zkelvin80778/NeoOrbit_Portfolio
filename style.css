@@ -93,7 +93,7 @@ section {
 }
 a {
   color: white;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
   color: #40C4FF;
