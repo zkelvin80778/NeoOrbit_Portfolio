@@ -234,61 +234,35 @@ a:hover {
 .project-content {
   padding: 20px 20px 20px 0;
   margin-left: -30px;
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
   z-index: 2;
-
-  /* =========================================================================
-     Clamp the entire content to ~2 lines worth of height
-     ========================================================================= */
-  max-height: 3.2em;            /* 2 lines × 1.6em */
-  overflow: hidden;
-  transition: max-height 0.8s ease;
+  /* no height restriction here — let only the description clamp */
 }
 
 .project-description {
-  /* strip default margins */
-  margin: 0;
-
-  /* ellipsis + clamp to two lines */
+  margin: 0 0 8px;               /* space before the status line */
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 2;         /* show exactly two lines */
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.6em;
-
-  /* animate any changes (just in case) */
-  transition: all 0.8s ease;
-}
-
-/* ========================================================================
-   On hover: lift the clamp from the wrapper, and unset the line-clamp
-   ======================================================================== */
-.project-card:hover .project-content {
-  max-height: 500px; /* large enough to show full text */
+  max-height: 3.2em;             /* 2 × 1.6em */
+  transition: max-height 0.8s ease;
 }
 
 .project-card:hover .project-description {
-  -webkit-line-clamp: unset;
+  -webkit-line-clamp: unset;     /* remove the clamp */
+  max-height: 1000px;            /* large enough to show full text */
 }
 
-.project-card {
-  display: flex;
-  background-color: #1e1e1e;
-  color: white;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+/* keep your existing hover‐scale effect below unchanged */
 .project-card:hover {
   transform: scale(1.02);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
 }
 
 .project-image-heatpump {
