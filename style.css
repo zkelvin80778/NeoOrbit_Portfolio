@@ -241,6 +241,24 @@ a:hover {
   position: relative;
   z-index: 2;
 }
+.project-content p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;     /* Show only 2 lines */
+  -webkit-box-orient: vertical;
+  transition: all 0.3s ease;
+  max-height: 3.2em;         /* Approx. 2 lines of text */
+  position: relative;
+}
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+.project-card:hover .project-content p {
+  -webkit-line-clamp: unset;
+  max-height: none;
+}
 .project-image-heatpump {
   background-image: url('assets/3DHeatPump.png');
 }
