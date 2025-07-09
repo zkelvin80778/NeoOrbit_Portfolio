@@ -209,13 +209,13 @@ a:hover {
   overflow: hidden;
   margin-bottom: 24px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  align-items: stretch; /* Ensures children match height */
-  height: 200px; /* Fix height to match image */
+  min-height: 200px;
+  position: relative;
 }
 
 .project-image {
   width: 200px;
-  height: 100%; /* FULL HEIGHT */
+  height: 100%;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -226,15 +226,16 @@ a:hover {
   content: "";
   position: absolute;
   top: 0;
-  right: 0;
-  width: 100%;
+  left: 75%;
+  width: 25%;
   height: 100%;
-  background: linear-gradient(to right, rgba(30, 30, 30, 0.6), #1e1e1e 80%);
+  background: linear-gradient(to right, rgba(30, 30, 30, 0.7), #1e1e1e);
+  pointer-events: none;
 }
 
 .project-content {
-  padding: 20px 24px;
-  flex: 1;
+  padding: 24px 32px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
