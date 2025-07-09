@@ -263,6 +263,7 @@ a:hover {
 
 .project-card:hover .project-description {
   -webkit-line-clamp: unset;
+  max-height: 1000px; 
 }
 
 .project-card {
