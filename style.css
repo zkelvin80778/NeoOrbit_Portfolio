@@ -249,8 +249,11 @@ a:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Show only 2 lines */
+  -webkit-line-clamp: 2;            /* Limit to 2 lines */
   -webkit-box-orient: vertical;
+  max-height: 3.2em;                /* Approximates 2 lines of text */
+  line-height: 1.6em;
+  transition: max-height 0.6s ease;
   position: relative;
 }
 .project-card:hover .project-content {
@@ -258,6 +261,7 @@ a:hover {
 }
 .project-card:hover .project-description {
   -webkit-line-clamp: unset;
+  max-height: 500px; /* expands smoothly on hover */
 }
 .project-card:hover {
   transform: scale(1.02);
