@@ -201,63 +201,75 @@ a:hover {
   z-index: 2;
   pointer-events: none;
 }
+/* ── PROJECT CARD LAYOUT ───────────────────────────────────────── */
+
 .project-card {
   display: flex;
   background-color: #1e1e1e;
-  color: white;
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 24px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* slow down the hover pop a bit */
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
+/* ── IMAGE + FADE ───────────────────────────────────────────────── */
+
 .project-image {
-  width: 40%;
-  background-image: url('assets/3DHeatPump.png');
+  flex: 0 0 40%;    /* fix at 40% width */
   background-size: cover;
   background-position: center;
   position: relative;
 }
 
-/* Fading gradient on right side of image */
+/* fading gradient from 25% → 100% of the image */
 .project-image::after {
   content: "";
   position: absolute;
   top: 0;
-  left: 25%; /* Start fading at 25% of the image */
+  left: 25%;
   width: 75%;
   height: 100%;
-  background: linear-gradient(to right, rgba(30,30,30,0) 0%, #1e1e1e 100%);
+  background: linear-gradient(
+    to right,
+    rgba(30,30,30,0) 0%,
+    #1e1e1e 100%
+  );
   pointer-events: none;
 }
+
+/* ── CONTENT + DESCRIPTION CLAMP ───────────────────────────────── */
+
 .project-content {
-  padding: 20px 20px 20px 0;
-  margin-left: -30px;
+  padding: 20px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
   z-index: 2;
-  /* no height restriction here — let only the description clamp */
 }
 
-/* clamp to 2 lines, animate via max-height only */
 .project-description {
-  margin: 0 0 8px;
-  line-height: 1.6em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;        /* show exactly 2 lines */
+  -webkit-line-clamp: 2;    /* clamp to 2 lines */
   overflow: hidden;
-  max-height: 3.2em;            /* 2 × 1.6em */
-  transition: max-height 0.8s ease-in-out;
+  text-overflow: ellipsis;
+  line-height: 1.6em;
+  max-height: 3.2em;         /* 2 × 1.6em */
+  transition: max-height 1s ease;  /* 1s smooth expansion */
 }
 
-/* on hover, release the clamp and expand smoothly */
+/* ── ON HOVER: UNCLAMP & EXPAND ────────────────────────────────── */
+
 .project-card:hover .project-description {
   -webkit-line-clamp: unset;
-  max-height: 1000px;           /* plenty to show everything */
+  max-height: 100em;         /* large enough to fit all text */
 }
 
 /* keep your existing hover‐scale effect below unchanged */
