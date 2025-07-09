@@ -243,7 +243,7 @@ a:hover {
 
   max-height: 4.2em;
   overflow: hidden;
-  transition: max-height 1.2s ease-in-out;
+  transition: max-height 1.2s ease;
 }
 .project-description {
   overflow: hidden;
