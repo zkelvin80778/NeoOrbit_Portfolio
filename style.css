@@ -240,8 +240,11 @@ a:hover {
   justify-content: center;
   position: relative;
   z-index: 2;
-}
 
+  max-height: 4.2em; /* Enough to show ~2 lines + status line */
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+}
 .project-description {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -253,12 +256,10 @@ a:hover {
   transition: all 0.6s ease;
   position: relative;
 }
-
 .project-card:hover .project-description {
   -webkit-line-clamp: unset;
   max-height: 1000px;                   /* Fully expand */
 }
-
 .project-card {
   display: flex;
   background-color: #1e1e1e;
@@ -269,7 +270,6 @@ a:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .project-card:hover {
   transform: scale(1.02);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
