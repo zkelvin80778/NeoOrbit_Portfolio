@@ -260,10 +260,6 @@ a:hover {
   transform: scale(1.02);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
-.project-card:hover p {
-  -webkit-line-clamp: unset;
-  max-height: none;
-}
 .project-image-heatpump {
   background-image: url('assets/3DHeatPump.png');
 }
