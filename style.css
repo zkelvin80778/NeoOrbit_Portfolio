@@ -242,21 +242,22 @@ a:hover {
   /* no height restriction here — let only the description clamp */
 }
 
+/* clamp to 2 lines, animate via max-height only */
 .project-description {
-  margin: 0 0 8px;               /* space before the status line */
+  margin: 0 0 8px;
+  line-height: 1.6em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;         /* show exactly two lines */
+  -webkit-line-clamp: 2;        /* show exactly 2 lines */
   overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.6em;
-  max-height: 3.2em;             /* 2 × 1.6em */
-  transition: max-height 0.8s ease;
+  max-height: 3.2em;            /* 2 × 1.6em */
+  transition: max-height 0.8s ease-in-out;
 }
 
+/* on hover, release the clamp and expand smoothly */
 .project-card:hover .project-description {
-  -webkit-line-clamp: unset;     /* remove the clamp */
-  max-height: 1000px;            /* large enough to show full text */
+  -webkit-line-clamp: unset;
+  max-height: 1000px;           /* plenty to show everything */
 }
 
 /* keep your existing hover‐scale effect below unchanged */
