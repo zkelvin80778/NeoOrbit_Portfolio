@@ -209,6 +209,7 @@ a:hover {
   overflow: hidden;
   margin-bottom: 24px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-image {
@@ -255,7 +256,7 @@ a:hover {
   transform: scale(1.02);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
-.project-card:hover .project-content p {
+.project-card:hover p {
   -webkit-line-clamp: unset;
   max-height: none;
 }
