@@ -238,3 +238,10 @@ a:hover {
   flex-direction: column;
   justify-content: center;
 }
+.project-image-heatpump {
+  background-image: url('assets/3DHeatPump.png');
+}
+
+.project-image-placeholder {
+  background-image: url('assets/PlaceHolder.png');
+}
