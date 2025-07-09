@@ -201,39 +201,32 @@ a:hover {
   z-index: 2;
   pointer-events: none;
 }
-/* ── PROJECT CARD LAYOUT ───────────────────────────────────────── */
-
+/* ── CARD & HOVER POP ────────────────────────────────────────── */
 .project-card {
   display: flex;
   background-color: #1e1e1e;
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 24px;
-  /* slow down the hover pop a bit */
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .project-card:hover {
   transform: scale(1.02);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
 }
 
-/* ── IMAGE + FADE ───────────────────────────────────────────────── */
-
+/* ── IMAGE + FADE ─────────────────────────────────────────────── */
 .project-image {
-  flex: 0 0 40%;    /* fix at 40% width */
+  flex: 0 0 40%;              /* fixed 40% width */
   background-size: cover;
   background-position: center;
   position: relative;
 }
-
-/* fading gradient from 25% → 100% of the image */
 .project-image::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 25%;
-  width: 75%;
-  height: 100%;
+  top: 0; left: 25%;
+  width: 75%; height: 100%;
   background: linear-gradient(
     to right,
     rgba(30,30,30,0) 0%,
@@ -242,34 +235,30 @@ a:hover {
   pointer-events: none;
 }
 
-/* ── CONTENT + DESCRIPTION CLAMP ───────────────────────────────── */
-
+/* ── CONTENT & CLAMPED DESCRIPTION ───────────────────────────── */
 .project-content {
-  padding: 20px;
   flex: 1;
+  padding: 20px;
+  margin-left: -30px;         /* overlap text into image */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
-  z-index: 2;
 }
 
 .project-description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;    /* clamp to 2 lines */
+  -webkit-line-clamp: 2;      /* show only 2 lines */
   overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.6em;
-  max-height: 3.2em;         /* 2 × 1.6em */
-  transition: max-height 1s ease;  /* 1s smooth expansion */
+  max-height: 3.2em;           /* = 2 × 1.6em */
+  transition: max-height 0.6s ease;
 }
 
-/* ── ON HOVER: UNCLAMP & EXPAND ────────────────────────────────── */
-
+/* ── ON HOVER: UNCLAMP & EXPAND ───────────────────────────────── */
 .project-card:hover .project-description {
   -webkit-line-clamp: unset;
-  max-height: 100em;         /* large enough to fit all text */
+  max-height: 1000px;          /* big enough to show all text */
 }
 
 /* keep your existing hover‐scale effect below unchanged */
