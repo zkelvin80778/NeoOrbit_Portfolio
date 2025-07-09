@@ -214,25 +214,25 @@ a:hover {
 }
 
 .project-image {
-  width: 200px;
+  width: 100%;
   height: auto;
-  min-height: 160px;
-  aspect-ratio: 1;
-  background-size: cover;
-  background-position: center;
+  max-width: 100%;
+  background-image: url('assets/3DHeatPump.png');
+  background-size: contain;   /* Ensures the whole image fits */
   background-repeat: no-repeat;
+  background-position: left center;
   position: relative;
-  flex-shrink: 0;
+  flex: 1;
 }
 
 .project-image::after {
   content: "";
   position: absolute;
   top: 0;
-  left: 75%;
-  width: 25%;
+  left: 25%; /* Fade starts at 25% of image */
+  width: 75%;
   height: 100%;
-  background: linear-gradient(to right, rgba(30, 30, 30, 0.7), #1e1e1e);
+  background: linear-gradient(to right, rgba(30, 30, 30, 0), #1e1e1e 100%);
   pointer-events: none;
 }
 
