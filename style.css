@@ -256,6 +256,9 @@ a:hover {
   transition: all 0.6s ease;
   position: relative;
 }
+.project-card:hover .project-content {
+  max-height: 1000px;
+}
 .project-card:hover .project-description {
   -webkit-line-clamp: unset;
   max-height: 1000px;                   /* Fully expand */
