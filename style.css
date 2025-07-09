@@ -249,21 +249,28 @@ a:hover {
 
 .project-description {
   overflow: hidden;
+  position: relative;
+  transition: max-height 0.6s ease;
+}
+
+.project-description p {
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  max-height: 3.2em;
   line-height: 1.6em;
-  transition: all 0.6s ease;
+  transition: max-height 0.6s ease;
 }
 
 .project-card:hover .project-content {
-  max-height: 500px; /* enough to show full text */
+  max-height: 500px;
 }
 
-.project-card:hover .project-description {
+.project-card:hover .project-description p {
   -webkit-line-clamp: unset;
-  max-height: 1000px; 
+  max-height: 1000px;
 }
 
 .project-card {
