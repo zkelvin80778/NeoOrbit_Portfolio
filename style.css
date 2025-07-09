@@ -209,12 +209,12 @@ a:hover {
   overflow: hidden;
   margin-bottom: 24px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  align-items: stretch; /* stretch image height */
+  align-items: stretch;
+  min-height: 200px; /* ensure height matches image */
 }
 
 .project-image {
-  width: 25%;
-  min-width: 120px;
+  width: 30%;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -237,4 +237,3 @@ a:hover {
   flex-direction: column;
   justify-content: center;
 }
-
