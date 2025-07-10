@@ -208,7 +208,7 @@ a:hover {
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 24px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 1s ease, box-shadow 1s ease;
 }
 .project-card:hover {
   transform: scale(1.02);
@@ -237,7 +237,7 @@ a:hover {
   flex: 1;
   position: relative;
   z-index: 2;
-  margin-left: -50px;   /* overlap into the image */
+  margin-left: -50px;   
   padding: 20px;
 }
 
@@ -245,18 +245,18 @@ a:hover {
 .project-description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;      /* clamp to 2 lines */
+  -webkit-line-clamp: 2;      
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.6em;
-  max-height: 3.2em;          /* 2 × 1.6em */
-  transition: max-height 0.6s ease;
+  max-height: 3.2em;          
+  transition: max-height 1s ease;
 }
 
 /* ── UNCLAMP ON HOVER ──────────────────────────────────────── */
 .project-card:hover .project-description {
   -webkit-line-clamp: unset;
-  max-height: 1000px;         /* big enough to reveal everything */
+  max-height: 1000px;         
 }
 
 /* ── STATUS ALWAYS VISIBLE ─────────────────────────────────── */
