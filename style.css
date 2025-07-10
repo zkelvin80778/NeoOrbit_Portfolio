@@ -201,7 +201,7 @@ a:hover {
   z-index: 2;
   pointer-events: none;
 }
-/* ── PROJECT CARD WRAPPER ───────────────────────────────────── */
+/* ── CARD LAYOUT ───────────────────────────────────────────── */
 .project-card {
   display: flex;
   background-color: #1e1e1e;
@@ -215,7 +215,7 @@ a:hover {
   box-shadow: 0 6px 16px rgba(0,0,0,0.5);
 }
 
-/* ── PROJECT IMAGE + FADE ───────────────────────────────────── */
+/* ── IMAGE + OVERLAY ───────────────────────────────────────── */
 .project-image {
   flex: 0 0 40%;
   position: relative;
@@ -237,15 +237,15 @@ a:hover {
   flex: 1;
   position: relative;
   z-index: 2;
-  margin-left: -30px;   /* pulls text 30px into the image */
+  margin-left: -30px;   /* overlap into the image */
   padding: 20px;
 }
 
-/* ── DESCRIPTION CLAMP ─────────────────────────────────────── */
+/* ── DESCRIPTION CLAMP & TRANSITION ───────────────────────── */
 .project-description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;      /* ← clamp to 2 lines */
+  -webkit-line-clamp: 2;      /* clamp to 2 lines */
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.6em;
@@ -256,7 +256,13 @@ a:hover {
 /* ── UNCLAMP ON HOVER ──────────────────────────────────────── */
 .project-card:hover .project-description {
   -webkit-line-clamp: unset;
-  max-height: 1000px;         /* large enough to show all text */
+  max-height: 1000px;         /* big enough to reveal everything */
+}
+
+/* ── STATUS ALWAYS VISIBLE ─────────────────────────────────── */
+.project-status {
+  margin-top: 1em;
+  font-weight: bold;
 }
 
 /* keep your existing hover‐scale effect below unchanged */
