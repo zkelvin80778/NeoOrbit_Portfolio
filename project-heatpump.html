@@ -43,6 +43,55 @@
   <p>
     Closer to home, the urgency is personal: build something robust and affordable enough to help heat my mom’s restaurant this winter. The HVAC fix isn’t feasible, so I’m aiming for a practical, safe add-on—mirrors for collection, a compact spiral heat exchanger, and simple smart controls—to cut fuel costs and keep staff and customers warm. Same idea, two frontiers.
   </p>
+
+  <h3 style="margin-top: 2rem;">Requirements and Constraints</h3>
+
+  <h4>Mission Goal</h4>
+  <p>
+    Mostly 3D-printed, solar-thermal heat-pump concept adaptable to ~0.6 kPa CO₂ and large thermal swings.
+  </p>
+
+  <h4>Environmental (Mars)</h4>
+  <ul>
+    <li><strong>Atmosphere:</strong> Near-vacuum → favor conduction/radiation, sealed flow paths.</li>
+    <li><strong>Thermals:</strong> Frequent cycling (−120 °C to +20 °C) → matched CTEs, low-temp toughness.</li>
+    <li><strong>Dust:</strong> Fine particulate → filtered intakes, protected bearings/seals, minimal exposed sliding parts.</li>
+    <li><strong>Solar flux:</strong> ~40–45% of Earth → maximize optical efficiency, downstream insulation.</li>
+  </ul>
+
+  <h4>Materials & Manufacturing</h4>
+  <ul>
+    <li><strong>Printability:</strong> PETG/ASA for structure; metal inserts for threads.</li>
+    <li><strong>Exchanger:</strong> Aluminum plate, spiral groove for 12 mm OD silicone tube, good contact pressure.</li>
+    <li><strong>Optics:</strong> Modular hex mirrors (~25 cm edge) on adjustable, lockable mounts.</li>
+    <li><strong>Hardware:</strong> Stainless fasteners; high-temp silicone gaskets.</li>
+  </ul>
+
+  <h4>Controls & Electronics</h4>
+  <ul>
+    <li><strong>Sensing:</strong> Inlet/outlet temps, exchanger surface temp; optional irradiance cue.</li>
+    <li><strong>Actuation:</strong> PWM fans/pump; safe start, watchdog, thermal cutoffs.</li>
+    <li><strong>MCU & Logs:</strong> Arduino Mega; SD logging; manual override + status LEDs.</li>
+  </ul>
+
+  <h4>Testing & Validation</h4>
+  <ul>
+    <li><strong>Test cell:</strong> Repeatable indoor setup; log ΔT, TEG V/I, time-to-steady-state, ambient.</li>
+    <li><strong>Loss audits:</strong> Insulation A/B, leak checks, mirror alignment.</li>
+    <li><strong>Iteration log:</strong> Issue → change → result with photos.</li>
+  </ul>
+
+  <h4>Interfaces & Safety</h4>
+  <ul>
+    <li><strong>UI:</strong> Single ON/OFF + setpoint; clear status indicator.</li>
+    <li><strong>Physical:</strong> Guards on hot zones; tip-resistant frame.</li>
+    <li><strong>Electrical:</strong> Fused input, strain relief, grounded enclosure.</li>
+  D</ul>
+
+  <h4>Out of Scope (this iteration)</h4>
+  <ul>
+    <li>Closed-loop refrigerants for Mars, radiation hardening, habitat-pressure integration.</li>
+  </ul>
   <h3 style="margin-top: 2rem;">Technical Details</h3>
   <p>The system is designed around a core of thermoelectric generators (TEGs), also known as Peltier modules, which can heat or cool by applying an electric current. </p>
   <ul>
@@ -82,6 +131,7 @@
 </body>
 
 </html>
+
 
 
 
