@@ -286,3 +286,15 @@ a:hover {
 .project-image-placeholder {
   background-image: url('assets/PlaceHolder.png');
 }
+/* Styles for project page images and captions */
+.project-figure {
+  margin: 1rem 0; /* This was the margin on your original image */
+  padding: 0;
+}
+
+.project-figure figcaption {
+  font-size: 0.85rem;  /* Very small text */
+  color: #888888;      /* A light grey color */
+  text-align: center;
+  margin-top: 0.5rem;   /* Adds a little space below the image */
+}
