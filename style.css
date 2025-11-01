@@ -302,3 +302,80 @@ a:hover {
   text-align: center;
   margin-top: 0.5rem;   /* Adds a little space below the image */
 }
+/* --- Two Column Layout --- */
+.two-column-layout {
+  display: flex;
+  flex-wrap: wrap; /* This will stack them on small screens */
+  gap: 2rem; /* Space between the text and the carousel */
+  align-items: flex-start; /* Aligns items to the top */
+}
+
+.content-column {
+  flex: 1; /* Takes up 50% of the space */
+  min-width: 300px; /* Helps with responsiveness */
+}
+
+.carousel-column {
+  flex: 1; /* Takes up 50% of the space */
+  min-width: 300px; /* Helps with responsiveness */
+}
+
+/* --- Carousel Styles --- */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.carousel-slide {
+  display: none; /* Hide all slides by default */
+}
+
+/* This is the class our JavaScript will add */
+.carousel-slide.active {
+  display: block; /* Show the active slide */
+  animation: fadeIn 0.5s ease-in-out; /* Nice fade effect */
+}
+
+.carousel-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* Next & previous buttons */
+.carousel-nav {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px; /* Centers button vertically */
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.3s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.carousel-nav.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.carousel-nav.prev {
+  left: 0;
+}
+
+.carousel-nav:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
