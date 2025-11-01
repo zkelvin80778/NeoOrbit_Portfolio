@@ -6,16 +6,19 @@
   
   <title>3D Heat Pump - NeoOrbit Dynamics</title>
 
-  <link rel="stylesheet" href="style.css"> <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Nasalization&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="index.html#mission">Mission</a>
-  <a href="index.html#projects">Projects</a>
-  <a href="index.html#contact">Contact</a>
+  <a href="#overview">Overview</a>
+  <a href="#inspiration">Inspiration</a>
+  <a href="#requirements">Requirements</a>
+  <a href="#concept-dev">Concept</a>
+  <a href="#fabrication">Fabrication</a>
 </nav>
 
 <header>
@@ -26,17 +29,17 @@
 </header>
 
 <section>
-  <h2>Project Overview</h2>
+  <h2 id="overview">Project Overview</h2>
   <p>
     This project tackles the unique challenge of habitat temperature regulation for future Martian missions. Utilizing thermoelectric generators, 3D-printed components, and open-source control systems, it aims to provide practical solutions for off-world sustainability.
   </p>
 
- <figure class="project-figure">
+  <figure class="project-figure">
     <img src="assets/3DHeatPump.png" alt="3D Heat Pump" style="width: 100%; border-radius: 8px;">
     <figcaption>3D model rendered in Roblox Studio</figcaption>
   </figure>
 
-  <h3 style="margin-top: 2rem;">Project Inspiration</h3>
+  <h3 id="inspiration" style="margin-top: 2rem;">Project Inspiration</h3>
   <p>
     Mars is a very interesting problem in that conventional HVAC ideas don’t really work: vapor-compression systems rely on refrigerants that can’t condense properly at Mars’s near-vacuum surface pressure of about 0.6 kPa (≈ 0.6 % of Earth’s sea-level atmosphere). Fans and radiators struggle because convective heat transfer is extremely weak in the thin CO₂ atmosphere, and the constant dust exposure and thermal cycling (from roughly −120 °C at night to +20 °C at midday) degrade seals, bearings, and coatings. With only about 40–45 % of Earth’s solar flux, you can’t simply scale a terrestrial heat pump. That pushed me to ask whether a mostly 3D-printed, recyclable system could capture daytime solar heat and release it after sunset in such a hostile environment.
   </p>
@@ -44,7 +47,7 @@
     Closer to home, the urgency is personal: build something robust and affordable enough to help heat my mom’s restaurant this winter. The HVAC fix isn’t feasible, so I’m aiming for a practical, safe add-on—mirrors for collection, a compact spiral heat exchanger, and simple smart controls—to cut fuel costs and keep staff and customers warm. Same idea, two frontiers.
   </p>
 
-  <h3 style="margin-top: 2rem;">Requirements and Constraints</h3>
+  <h3 id="requirements" style="margin-top: 2rem;">Requirements and Constraints</h3>
 
   <h4>Mission Goal</h4>
   <p>
@@ -77,7 +80,7 @@
   <h4>Testing & Validation</h4>
   <ul>
     <li><strong>Test cell:</strong> Repeatable indoor setup; log ΔT, TEG V/I, time-to-steady-state, ambient.</li>
-    <li><strong>Loss audits:</strong> Insulation A/B, leak checks, mirror alignment.</li>
+    <li><strong>Loss audits:</strong> Insulation A_B, leak checks, mirror alignment.</li>
     <li><strong>Iteration log:</strong> Issue → change → result with photos.</li>
   </ul>
 
@@ -92,7 +95,8 @@
   <ul>
     <li>Closed-loop refrigerants for Mars, radiation hardening, habitat-pressure integration.</li>
   </ul>
-<h3 style="margin-top: 2rem;">Concept Development</h3>
+
+  <h3 id="concept-dev" style="margin-top: 2rem;">Concept Development</h3>
 
   <h4>Optics Architecture</h4>
   <ul>
@@ -120,7 +124,6 @@
   <ul>
     <li>4 Light Dependent Resistors (LDRs) mounted in different quadrants feed real-time light intensity to a Microcontroller Unit (MCU).</li>
     <li>The MCU will create a 2x2 grid that models the current location of the sun in the sky.</li>
-    
     <li>Light intensity readings are compared to known values, allowing for determining a night/day/dust storm cycle. In the event of a blackout, the motors will be locked in place and the system will enter a state of hibernation.</li>
     <li>Using motors + magnetic encoder feedback, the MCU will reorient the mirror array to face the sun directly.</li>
   </ul>
@@ -133,8 +136,7 @@
     <li><strong>Rejected:</strong> reflective sprays (unrealistic for ISRU application).</li>
   </ul>
 
-  <!-- New Fabrication and Assembly Section -->
-  <h3 style="margin-top: 2rem;">Fabrication and Assembly</h3>
+  <h3 id="fabrication" style="margin-top: 2rem;">Fabrication and Assembly</h3>
 
   <h4>Printed Components</h4>
   <ul>
@@ -160,7 +162,6 @@
   <ul>
     <li>I custom-designed an LDR board, featuring a built-in voltage divider, resistors, and a status LED.</li>
     <li>The finished board was ordered from PCBWay.</li>
-    
   </ul>
 
   <h4>Frame Assembly</h4>
@@ -175,15 +176,4 @@
 </div>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
