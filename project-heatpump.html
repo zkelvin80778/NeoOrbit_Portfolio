@@ -96,24 +96,49 @@
     <li>Closed-loop refrigerants for Mars, radiation hardening, habitat-pressure integration.</li>
   </ul>
 
-  <h3 id="concept-dev" style="margin-top: 2rem;">Concept Development</h3>
+<h3 id="concept-dev">Concept Development</h3>
 
-  <h4>Optics Architecture</h4>
-  <ul>
-    <li><strong>Candidate shapes:</strong> circular, hexagonal</li>
-    <li><strong>Candidate curvature:</strong> parabolic, spherical</li>
-    <li><strong>Design chosen:</strong> parabolic hexagonal mirrors (25cm edge length)</li>
-  </ul>
+  <div class="two-column-layout">
+    
+    <div class="content-column">
+      <h4>Optics Architecture</h4>
+      <ul>
+        <li><strong>Candidate shapes:</strong> circular, hexagonal</li>
+        <li><strong>Candidate curvature:</strong> parabolic, spherical</li>
+        <li><strong>Design chosen:</strong> parabolic hexagonal mirrors (25cm edge length)</li>
+      </ul>
 
-  <h5 style="margin-top: 1rem; font-weight: bold;">Reasoning</h5>
-  <ul>
-    <li>Spherical mirrors scatter light into an area known as a focal volume.</li>
-    <li>On the other hand, parabolic mirrors focus light into a single focal point.</li>
-    <li>This makes parabolic mirrors suitable for concentrating large amounts of light onto a single point, like, say, a small heat exchanger.</li>
-    <li>When arranged in an array, hexagonal geometries perform better at filling gaps between mirrors, as evidenced by the James Webb Space Telescope design process.</li>
-  </ul>
+      <h5>Reasoning</h5>
+      <ul>
+        <li>Spherical mirrors scatter light into an area known as a focal volume.</li>
+        
 
-  <h4>Heat Exchanger Geometry</h4>
+[Image of spherical vs parabolic mirror focal points]
+
+        <li>On the other hand, parabolic mirrors focus light into a single focal point.</li>
+        <li>This makes parabolic mirrors suitable for concentrating large amounts of light onto a single point, like, say, a small heat exchanger.</li>
+        <li>When arranged in an array, hexagonal geometries perform better at filling gaps between mirrors, as evidenced by the James Webb Space Telescope design process.</li>
+      </ul>
+    </div>
+
+    <div class="carousel-column">
+      <div class="carousel-container">
+        
+        <div class="carousel-slide active">
+          <img src="assets/optics-render-1.jpg" alt="Optics render 1" class="carousel-img">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/optics-diagram-2.png" alt="Optics diagram 2" class="carousel-img">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/optics-prototype-3.jpg" alt="Optics prototype 3" class="carousel-img">
+        </div>
+        <a class="carousel-nav prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="carousel-nav next" onclick="changeSlide(1)">&#10095;</a>
+      </div>
+    </div>
+  
+  </div> <h4>Heat Exchanger Geometry</h4>
   <ul>
     <li><strong>Picked:</strong> Aluminum plate with spiral groove to seat 12 mm OD silicone tubing; paste + clamp pressure for contact.</li>
     <li><strong>Rejected:</strong> Microchannel plate (fabrication cost), copper coil bundle (contact inconsistency, harder to mount).</li>
@@ -177,3 +202,4 @@
 
 </body>
 </html>
+
