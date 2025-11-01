@@ -105,6 +105,14 @@ section {
 .project:hover {
   background-color: #222;
 }
+.project-card-link {
+  display: block; /* Makes the <a> tag behave like the div */
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Makes all text inside use the parent's color (white) */
+}
+.project-card-link:hover {
+  color: inherit;
+}
 .project a {
   text-decoration: none;
   color: inherit;
