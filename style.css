@@ -22,14 +22,9 @@ body {
   line-height: 1.6;
 }
 
-/* Ensure ALL headings are white by default */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-main);
-}
-
-p {
-  color: var(--text-main);
-}
+/* Force headings to white */
+h1, h2, h3, h4, h5, h6 { color: var(--text-main); }
+p { color: var(--text-main); }
 
 a {
   color: var(--text-main);
@@ -45,7 +40,7 @@ a:hover {
    2. NAVIGATION
    ───────────────────────────────────────────────────────────── */
 nav {
-  background: rgba(0, 0, 0, 0.9); /* Almost solid black */
+  background: rgba(0, 0, 0, 0.9);
   padding: 1rem;
   position: sticky;
   top: 0;
@@ -69,7 +64,7 @@ nav a:hover {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   3. HEADER & BANNER
+   3. HEADER & BANNER (Shared)
    ───────────────────────────────────────────────────────────── */
 header {
   position: relative;
@@ -81,7 +76,7 @@ header {
   text-align: center;
   overflow: hidden;
   padding: 0 20px;
-  background-color: black; /* Safety fallback */
+  background-color: black;
 }
 
 /* Background Image Container */
@@ -93,8 +88,35 @@ header {
   height: 100%;
   background-size: cover;
   background-position: center;
-  z-index: -2;
-  opacity: 0.5; /* Slightly darker to make text pop */
+  z-index: 0; /* Behind content */
+  opacity: 0.5;
+}
+
+/* Specific styling for the Home Page Logo (if present) */
+header img {
+  width: 120px; 
+  margin-bottom: 1rem;
+  z-index: 2;
+  filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.8));
+}
+
+/* Typography */
+header h1 {
+  font-family: 'Nasalization', sans-serif;
+  font-size: 3.5rem;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
 }
 
 /* Vignette Mask (Darkens bottom of header) */
@@ -105,36 +127,106 @@ header {
   width: 100%;
   height: 100%;
   background: linear-gradient(to bottom, transparent 0%, black 100%);
-  z-index: -1;
+  z-index: 1;
   pointer-events: none;
 }
 
-/* Header Typography */
-header h1 {
-  font-family: 'Nasalization', sans-serif;
-  font-size: 3.5rem;
-  margin: 0 0 0.5rem 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  /* Removed text-shadow (Blue Glow) */
-  z-index: 2;
+/* ─────────────────────────────────────────────────────────────
+   4. HOME PAGE: PROJECT CARDS (Restored)
+   ───────────────────────────────────────────────────────────── */
+/* Container for the cards */
+section {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 2rem;
 }
 
-.tagline {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  letter-spacing: 1px;
+.project-card {
+  display: flex;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #222;
+  /* Important: Ensures the link covers the whole card */
+  position: relative; 
+}
+
+/* Wrap the whole card in an anchor tag in HTML, or ensure text behaves */
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  border-color: var(--accent-color);
+}
+
+.project-image {
+  flex: 0 0 40%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 200px; /* Ensures image shows up */
+}
+
+/* Gradient overlay on the image so text pops if it overlaps */
+.project-image::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 25%;
+  width: 75%; height: 100%;
+  background: linear-gradient(to right, rgba(30,30,30,0) 0%, var(--card-bg) 100%);
+  pointer-events: none;
+}
+
+/* Specific Project Images (Add your file names here) */
+.project-image-heatpump {
+  background-image: url('assets/3DHeatPump.png');
+}
+
+.project-image-placeholder {
+  background-image: url('assets/PlaceHolder.png');
+}
+
+.project-content {
+  flex: 1;
+  position: relative;
   z-index: 2;
+  margin-left: -40px; /* Pulls text slightly over the image fade */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-content h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: var(--text-main);
+}
+
+.project-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;      
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.6em;
+  color: var(--text-muted);
+}
+
+/* On hover, show full text */
+.project-card:hover .project-description {
+  -webkit-line-clamp: unset;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   4. CONTENT LAYOUT
+   5. PROJECT PAGE CONTENT (Grid, Timeline, etc)
    ───────────────────────────────────────────────────────────── */
 .content-section {
   max-width: 900px;
   margin: 4rem auto;
   padding: 0 2rem;
-  color: var(--text-main); /* Forces White Text */
+  color: var(--text-main);
 }
 
 .content-section h2 {
@@ -142,20 +234,16 @@ header h1 {
   border-bottom: 2px solid #333;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
-  color: var(--text-main); /* White */
+  color: var(--text-main);
 }
 
 .content-section h3 {
   font-size: 1.4rem;
   margin-top: 2rem;
-  color: var(--text-muted); /* Light Grey */
+  color: var(--text-muted);
 }
 
-/* ─────────────────────────────────────────────────────────────
-   5. COMPONENTS (Grids, Timelines, Boxes)
-   ───────────────────────────────────────────────────────────── */
-
-/* Grid System (for Requirements) */
+/* Grid System */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -179,23 +267,19 @@ header h1 {
   margin-bottom: 1rem;
 }
 
-.grid-item p {
-  color: #ddd;
-}
-
-/* Highlight Box (The "Key Benefit" box) */
+/* Highlight Box */
 .highlight-box {
-  background-color: #111; /* Dark background */
-  border: 1px solid #333; /* Grey border */
+  background-color: #111;
+  border: 1px solid #333;
   border-left: 5px solid var(--accent-color);
   padding: 1.5rem;
   margin: 2rem 0;
   border-radius: 4px;
-  color: var(--text-main); /* White text */
+  color: var(--text-main);
   font-style: italic;
 }
 
-/* Vertical Timeline */
+/* Timeline */
 .timeline {
   margin-top: 2rem;
   border-left: 2px solid #444;
@@ -205,13 +289,12 @@ header h1 {
 .timeline-item {
   margin-bottom: 2rem;
   position: relative;
-  color: #ddd;
+  color: var(--text-muted);
 }
 
 .timeline-item strong {
-  color: white;
+  color: var(--text-main);
   display: block;
-  margin-bottom: 0.2rem;
 }
 
 .timeline-item::before {
@@ -221,27 +304,30 @@ header h1 {
   top: 5px;
   width: 10px;
   height: 10px;
-  background: #fff; /* White dot instead of blue glow */
+  background: #fff;
   border-radius: 50%;
 }
 
+/* Figures */
+.project-figure {
+  margin: 3rem 0;
+  text-align: center;
+}
+.project-figure img {
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+.project-figure figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
 /* Styled Lists */
-.styled-list {
-  list-style: none;
-  padding: 0;
-}
-
-.styled-list li {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-  position: relative;
-  color: #ddd;
-}
-
-.styled-list li strong {
-  color: white;
-}
-
+.styled-list { list-style: none; padding: 0; }
+.styled-list li { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; color: var(--text-muted); }
+.styled-list li strong { color: var(--text-main); }
 .styled-list li::before {
   content: '➤';
   position: absolute;
@@ -249,24 +335,6 @@ header h1 {
   color: var(--accent-color);
   font-size: 0.8rem;
   top: 4px;
-}
-
-/* Figures / Images */
-.project-figure {
-  margin: 3rem 0;
-  text-align: center;
-}
-
-.project-figure img {
-  border-radius: 8px;
-  border: 1px solid #333;
-}
-
-.project-figure figcaption {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-top: 0.5rem;
-  font-style: italic;
 }
 
 /* ─────────────────────────────────────────────────────────────
