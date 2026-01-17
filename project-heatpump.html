@@ -28,204 +28,129 @@
   <p class="tagline">Maker Portfolio | Kelvin Zhang</p>
 </header>
 
-<section>
-  <h2 id="overview">Project Overview</h2>
-  <p>
-    This project tackles the unique challenge of habitat temperature regulation for future Martian missions. Utilizing thermoelectric generators, 3D-printed components, and open-source control systems, it aims to provide practical solutions for off-world sustainability.
-  </p>
+<main>
+<section class="content-section">
+    <h2 id="overview">1. Executive Overview</h2>
+    <h3>Problem Statement</h3>
+    <p>
+      Sustained, crewed exploration of Mars requires energy systems that can operate under reduced solar
+      irradiance, frequent dust accumulation, and limited opportunities for resupply. Photovoltaic systems scale
+      primarily through increased surface area and become constrained by deployment complexity under these
+      conditions, while the availability and production rates of suitable radioisotopes limit radioisotope thermoelectric
+      [cite_start]generators[cite: 12, 13].
+    </p>
+    <p>
+      The resulting challenge is to develop a scalable surface energy architecture that can operate under
+      [cite_start]reduced and variable solar input without relying on extensive photovoltaic arrays or scarce nuclear materials[cite: 14].
+    </p>
 
-  <figure class="project-figure">
-    <img src="assets/3DHeatPump.png" alt="3D Heat Pump" style="width: 100%; border-radius: 8px;">
-    <figcaption>3D model rendered in Roblox Studio</figcaption>
-  </figure>
-
-  <h3 id="inspiration" style="margin-top: 2rem;">Project Inspiration</h3>
-  <p>
-    Mars is a very interesting problem in that conventional HVAC ideas don’t really work: vapor-compression systems rely on refrigerants that can’t condense properly at Mars’s near-vacuum surface pressure of about 0.6 kPa (≈ 0.6 % of Earth’s sea-level atmosphere). Fans and radiators struggle because convective heat transfer is extremely weak in the thin CO₂ atmosphere, and the constant dust exposure and thermal cycling (from roughly −120 °C at night to +20 °C at midday) degrade seals, bearings, and coatings. With only about 40–45 % of Earth’s solar flux, you can’t simply scale a terrestrial heat pump. That pushed me to ask whether a mostly 3D-printed, recyclable system could capture daytime solar heat and release it after sunset in such a hostile environment.
-  </p>
-  <p>
-    Closer to home, the urgency is personal: build something robust and affordable enough to help heat my mom’s restaurant this winter. The HVAC fix isn’t feasible, so I’m aiming for a practical, safe add-on—mirrors for collection, a compact spiral heat exchanger, and simple smart controls—to cut fuel costs and keep staff and customers warm. Same idea, two frontiers.
-  </p>
-
-  <h3 id="requirements" style="margin-top: 2rem;">Requirements and Constraints</h3>
-
-  <h4>Mission Goal</h4>
-  <p>
-    Mostly 3D-printed, solar-thermal heat-pump concept adaptable to ~0.6 kPa CO₂ and large thermal swings.
-  </p>
-
-  <h4>Environmental (Mars)</h4>
-  <ul>
-    <li><strong>Atmosphere:</strong> Near-vacuum → favor conduction/radiation, sealed flow paths.</li>
-    <li><strong>Thermals:</strong> Frequent cycling (−120 °C to +20 °C) → matched CTEs, low-temp toughness.</li>
-    <li><strong>Dust:</strong> Fine particulate → filtered intakes, protected bearings/seals, minimal exposed sliding parts.</li>
-    <li><strong>Solar flux:</strong> ~40–45% of Earth → maximize optical efficiency, downstream insulation.</li>
-  </ul>
-
-  <h4>Materials & Manufacturing</h4>
-  <ul>
-    <li><strong>Printability:</strong> PETG/ASA for structure; metal inserts for threads.</li>
-    <li><strong>Exchanger:</strong> Aluminum plate, spiral groove for 12 mm OD silicone tube, good contact pressure.</li>
-    <li><strong>Optics:</strong> Modular hex mirrors (~25 cm edge) on adjustable, lockable mounts.</li>
-    <li><strong>Hardware:</strong> Stainless fasteners; high-temp silicone gaskets.</li>
-  </ul>
-
-  <h4>Controls & Electronics</h4>
-  <ul>
-    <li><strong>Sensing:</strong> Inlet/outlet temps, exchanger surface temp; optional irradiance cue.</li>
-    <li><strong>Actuation:</strong> PWM fans/pump; safe start, watchdog, thermal cutoffs.</li>
-    <li><strong>MCU & Logs:</strong> Arduino Mega; SD logging; manual override + status LEDs.</li>
-  </ul>
-
-  <h4>Testing & Validation</h4>
-  <ul>
-    <li><strong>Test cell:</strong> Repeatable indoor setup; log ΔT, TEG V/I, time-to-steady-state, ambient.</li>
-    <li><strong>Loss audits:</strong> Insulation A_B, leak checks, mirror alignment.</li>
-    <li><strong>Iteration log:</strong> Issue → change → result with photos.</li>
-  </ul>
-
-  <h4>Interfaces & Safety</h4>
-  <ul>
-    <li><strong>UI:</strong> Single ON/OFF + setpoint; clear status indicator.</li>
-    <li><strong>Physical:</strong> Guards on hot zones; tip-resistant frame.</li>
-    <li><strong>Electrical:</strong> Fused input, strain relief, grounded enclosure.</li>
-  </ul>
-
-  <h4>Out of Scope (this iteration)</h4>
-  <ul>
-    <li>Closed-loop refrigerants for Mars, radiation hardening, habitat-pressure integration.</li>
-  </ul>
-
-<h3 id="concept-dev">Concept Development</h3>
-
-  <div class="two-column-layout">
+    <h3>Proposed Solution</h3>
+    <p>
+      This project proposes a solar concentrator architecture that mitigates Martian surface energy constraints by
+      converting diffuse solar irradiance into thermal energy before electrical utilization. A segmented array of
+      parabolic mirrors arranged in a hexagonal geometry focuses sunlight onto a centralized interface that serves
+      both as a heat exchanger for a water-based heat pump system and as a mounting surface for thermoelectric
+      [cite_start]generator modules[cite: 20, 21].
+    </p>
     
-    <div class="content-column">
-      <h4>Optics Architecture</h4>
-      <ul>
-        <li><strong>Candidate shapes:</strong> circular, hexagonal</li>
-        <li><strong>Candidate curvature:</strong> parabolic, spherical</li>
-        <li><strong>Design chosen:</strong> parabolic hexagonal mirrors (25cm edge length)</li>
-      </ul>
-
-      <h5>Reasoning</h5>
-      <ul>
-        <li>Spherical mirrors scatter light into an area known as a focal volume.</li>
-        
-
-[Image of spherical vs parabolic mirror focal points]
-
-        <li>On the other hand, parabolic mirrors focus light into a single focal point.</li>
-        <li>This makes parabolic mirrors suitable for concentrating large amounts of light onto a single point, like, say, a small heat exchanger.</li>
-        <li>When arranged in an array, hexagonal geometries perform better at filling gaps between mirrors, as evidenced by the James Webb Space Telescope design process.</li>
-      </ul>
+    <div class="highlight-box">
+      <strong>Key Benefit:</strong> By decoupling optical collection from electrical conversion and maintaining alignment
+      [cite_start]through active sun tracking, the system prioritizes precision and scalability over large photovoltaic surface area[cite: 22].
     </div>
+  </section>
 
-    <div class="carousel-column">
-      <div class="carousel-container">
-        
-        <div class="carousel-slide active">
-          <img src="assets/optics-render-1.jpg" alt="Optics render 1" class="carousel-img">
-        </div>
-        <div class="carousel-slide">
-          <img src="assets/optics-diagram-2.png" alt="Optics diagram 2" class="carousel-img">
-        </div>
-        <div class="carousel-slide">
-          <img src="assets/optics-prototype-3.jpg" alt="Optics prototype 3" class="carousel-img">
-        </div>
-        <a class="carousel-nav prev" onclick="changeSlide(-1)">&#10094;</a>
-        <a class="carousel-nav next" onclick="changeSlide(1)">&#10095;</a>
+  <section class="content-section">
+    <h2 id="requirements">2. Design Motivation & Constraints</h2>
+    
+    <div class="grid-container">
+      <div class="grid-item">
+        <h3>Energy Density Limits</h3>
+        <p>
+          On Mars, solar power is reduced by heliocentric distance and degraded by dust. Photovoltaic systems struggle with non-uniform illumination. [cite_start]This motivates approaches that increase usable energy density without massive footprints[cite: 24, 25, 26].
+        </p>
+      </div>
+      <div class="grid-item">
+        <h3>Square-Root Law</h3>
+        <p>
+          Under concentration, PV current increases linearly while voltage increases logarithmically, leading to diminishing returns. [cite_start]Thermal loading becomes a dominant issue, restricting high-flux PV scaling[cite: 28, 29].
+        </p>
+      </div>
+      <div class="grid-item">
+        <h3>Thermal vs. Electrical</h3>
+        <p>
+          Thermal pathways tolerate high flux and uneven light better than direct electrical conversion. [cite_start]Absorbing light as heat allows for redistribution and buffering, reducing sensitivity to alignment errors[cite: 32, 33].
+        </p>
       </div>
     </div>
-  
-  </div> <h4>Heat Exchanger Geometry</h4>
-  <ul>
-    <li><strong>Picked:</strong> Aluminum plate with spiral groove to seat 12 mm OD silicone tubing; paste + clamp pressure for contact.</li>
-    <li><strong>Rejected:</strong> Microchannel plate (fabrication cost), copper coil bundle (contact inconsistency, harder to mount).</li>
-    <li><strong>Tradeoffs:</strong> Spiral gives a predictable path, serviceable tubing, and printable fixtures.</li>
-  </ul>
+  </section>
 
-  <h4>Sun Tracking and Alignment</h4>
-  <ul>
-    <li>4 Light Dependent Resistors (LDRs) mounted in different quadrants feed real-time light intensity to a Microcontroller Unit (MCU).</li>
-    <li>The MCU will create a 2x2 grid that models the current location of the sun in the sky.</li>
-    <li>Light intensity readings are compared to known values, allowing for determining a night/day/dust storm cycle. In the event of a blackout, the motors will be locked in place and the system will enter a state of hibernation.</li>
-    <li>Using motors + magnetic encoder feedback, the MCU will reorient the mirror array to face the sun directly.</li>
-  </ul>
+  <section class="content-section">
+    <h2 id="concept-dev">3. System Architecture</h2>
+    <h3>Overall Energy Flow</h3>
+    <ul class="styled-list">
+      [cite_start]<li><strong>Collection:</strong> 12 hexagonal parabolic mirrors concentrate sunlight toward a shared zone[cite: 40].</li>
+      [cite_start]<li><strong>Redirection:</strong> An offset secondary mirror intercepts and redirects the beam to a central target[cite: 41].</li>
+      [cite_start]<li><strong>Absorption:</strong> The central plate absorbs flux as heat at a controlled interface[cite: 42].</li>
+      [cite_start]<li><strong>Utilization:</strong> Heat is transferred to the heat exchanger or thermoelectric stack[cite: 43].</li>
+    </ul>
 
-  <h4>Materials and Manufacturability</h4>
-  <ul>
-    <li><strong>Picked:</strong> PETG for brackets/connectors and ASA for heat-sensitive components. Future iterations will explore the use of recycled PET (rPET) plastics from mission waste.</li>
-    <li><strong>Rejected:</strong> High-temp exotic polymers (cost), carbon fiber layups (tooling/time).</li>
-    <li><strong>Picked:</strong> Aluminum foil for mirror surfaces. Future iterations will explore the use of stainless steel sheet metal.</li>
-    <li><strong>Rejected:</strong> reflective sprays (unrealistic for ISRU application).</li>
-  </ul>
+    <figure class="project-figure">
+      <img src="assets/optics-diagram-2.png" alt="System Architecture Diagram" style="width: 100%; max-width: 600px; border-radius: 8px;">
+      <figcaption>Figure 3.1: Optical path and mirror arrangement.</figcaption>
+    </figure>
+  </section>
 
-  <h3 id="fabrication" style="margin-top: 2rem;">Fabrication and Assembly</h3>
+  <section class="content-section">
+    <h2 id="fabrication">4. Optical Design & Fabrication</h2>
+    <h3>Mirror Selection</h3>
+    <p>
+      Parabolic mirrors were selected to collimate sunlight into a predictable focal region. [cite_start]A 250 mm hexagonal edge length was chosen to balance manufacturability, stiffness, and handling[cite: 51, 52].
+    </p>
 
-  <h4>Printed Components</h4>
-  <ul>
-    <li>Brackets made of PETG.</li>
-    <li>Heat exchanger plate mount made of ASA.</li>
-    <li>Infill was adjusted so that the most structurally taxed areas have the most strength, while the least structurally taxed areas conserve material.</li>
-    <li>To further conserve material, no top or bottom layers were used for most components.</li>
-  </ul>
+    <h3>Iterative Prototyping</h3>
+    <p>The design evolved through three major iterations to solve manufacturing defects:</p>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <strong>Iteration 1:</strong> Used hot glue for assembly. [cite_start]<em>Failure:</em> Created protrusions that distorted the mirror surface[cite: 71, 72].
+      </div>
+      <div class="timeline-item">
+        <strong>Iteration 2:</strong> Printed flat to save weight. [cite_start]<em>Failure:</em> Warping occurred across unsupported bridge regions[cite: 78, 79].
+      </div>
+      <div class="timeline-item">
+        <strong>Iteration 3:</strong> Modular design with separated reflective surfaces. [cite_start]<em>Result:</em> Better optical quality, though fragile aluminum foil remains a limitation[cite: 81, 176].
+      </div>
+    </div>
+  </section>
 
-  <h4>Machined Parts</h4>
-  <ul>
-    <li>2020 and 2040 aluminum extrusions were bought in bulk and cut to size, forming the frame.</li>
-    <li>Aluminum stock material was bought and cut to size, forming heat sinks.</li>
-  </ul>
+  <section class="content-section">
+    <h2 id="tracking">5. Tracking & Alignment</h2>
+    <p>
+      The system uses a "Light Dependent Resistor" (LDR) array to track the sun. Four sensors are arranged in a quadrant. [cite_start]When the system is aligned, all four sensors report equal light intensity[cite: 91, 93].
+    </p>
+    <p>
+      The control objective is not absolute sun position, but the minimization of differential light intensity. [cite_start]This allows the system to self-correct using simple servo motors[cite: 96].
+    </p>
 
-  <h4>Optics Build</h4>
-  <ul>
-    <li>Mirrors are printed as separate, mass-producible parts, assembled using clips or mechanical welding of the plastic.</li>
-    <li>The surface is made of store-bought aluminum foil, mimicking resources that might be available on a Mars mission.</li>
-  </ul>
+    <figure class="project-figure">
+      <img src="assets/optics-render-1.jpg" alt="LDR Sensor Array" style="width: 100%; max-width: 500px; border-radius: 8px;">
+      <figcaption>Custom LDR Sensor Board for Sun Tracking</figcaption>
+    </figure>
+  </section>
 
-  <h4>Custom Electronics</h4>
-  <ul>
-    <li>I custom-designed an LDR board, featuring a built-in voltage divider, resistors, and a status LED.</li>
-    <li>The finished board was ordered from PCBWay.</li>
-  </ul>
-
-  <h4>Frame Assembly</h4>
-  <ul>
-    <li>The frame was assembled using various M4 screw variants, T-nuts, and M4 threaded inserts.</li>
-  </ul>
-  
-</section>
+  <section class="content-section">
+    <h2 id="future">6. Future Scalability</h2>
+    <ul class="styled-list">
+      [cite_start]<li><strong>Scientific Data:</strong> The tracking sensors can be used to log atmospheric dust and solar variability[cite: 180].</li>
+      [cite_start]<li><strong>Battery Buffering:</strong> Storing excess thermal energy for night-time release[cite: 182].</li>
+      [cite_start]<li><strong>Orbital Reflectors:</strong> Using orbital mirrors to redirect sunlight to surface concentrators during Martian night[cite: 184].</li>
+    </ul>
+  </section>
+</main>
 
 <div class="footer">
   &copy; 2025 NeoOrbit Dynamics — Engineering Energy for Mars and Earth
 </div>
 
-<script>
-  let slideIndex = 1;
-  showSlide(slideIndex);
-
-  // Next/previous controls
-  function changeSlide(n) {
-    showSlide(slideIndex += n);
-  }
-
-  function showSlide(n) {
-    let i;
-    let slides = document.getElementsByClassName("carousel-slide");
-    
-    if (n > slides.length) { slideIndex = 1 } // Loop to first slide
-    if (n < 1) { slideIndex = slides.length } // Loop to last slide
-    
-    // Hide all slides
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-        slides[i].classList.remove("active");
-    }
-    
-    // Show the current slide
-    slides[slideIndex - 1].style.display = "block";
-    slides[slideIndex - 1].classList.add("active");
-  }
-</script>
-
-</body> </html>
+</body>
+</html>
