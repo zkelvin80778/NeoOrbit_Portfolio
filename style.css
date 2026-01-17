@@ -86,28 +86,21 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  
-  /* Home Page Image & Filters */
   background-image: url('assets/Earth-Mars.png'); 
   background-size: cover;
   background-position: center;
   z-index: 1;
-  
-  /* High Brightness for dark space background */
   opacity: 1; 
   filter: brightness(1.3) contrast(1.1); 
 }
 
 /* --- CATEGORY 2: PROJECT PAGES (AUTOMATIC OVERRIDE) --- */
-/* This detects if the HTML has a custom inline image */
 .header-bg[style*="background-image"] {
-  /* Dim the background MORE so white text is readable against bright renders */
   opacity: 0.4 !important; 
-  /* Remove the brightness filter so colors look natural */
   filter: none !important; 
 }
 
-/* Vignette Mask (Middle Layer) */
+/* Vignette Mask */
 .vignette-mask {
   position: absolute;
   bottom: 0;
@@ -119,7 +112,7 @@ header {
   pointer-events: none;
 }
 
-/* Content Layer (Top) */
+/* Content Layer */
 header img {
   width: 120px; 
   position: relative;
@@ -149,8 +142,6 @@ header h1 {
   position: relative;
   z-index: 100; 
   margin-top: 5px; 
-  
-  /* Strong Outline/Shadow for maximum readability */
   text-shadow: 
     -1px -1px 0 #000,  
      1px -1px 0 #000,
@@ -158,7 +149,6 @@ header h1 {
      1px  1px 0 #000,
      0 0 10px rgba(0,0,0,1);
 }
-
 
 /* ─────────────────────────────────────────────────────────────
    4. HOME PAGE: PROJECT CARDS
@@ -203,7 +193,6 @@ section {
   pointer-events: none;
 }
 
-/* Specific Project Images */
 .project-image-heatpump {
   background-image: url('assets/3DHeatPump.png');
 }
@@ -291,12 +280,11 @@ section {
   margin-bottom: 1rem;
 }
 
-/* --- THE KEY BENEFIT CARD --- */
+/* Key Benefit Card */
 .highlight-box {
   background-color: #111;
   border: 1px solid #333;
-  /* UPDATED: Changed from Blue variable to White */
-  border-left: 5px solid #ffffff;
+  border-left: 5px solid #ffffff; /* White Accent */
   padding: 1.5rem;
   margin: 2rem 0;
   border-radius: 4px;
@@ -304,15 +292,19 @@ section {
   font-style: italic;
 }
 
-/* Timeline */
+/* ─────────────────────────────────────────────────────────────
+   UPDATED TIMELINE (Cleaner & Tech-Focused)
+   ───────────────────────────────────────────────────────────── */
 .timeline {
-  margin-top: 2rem;
-  border-left: 2px solid #444;
-  padding-left: 2rem;
+  margin-top: 3rem;
+  margin-left: 1rem;
+  /* Thinner, semi-transparent line for a cleaner look */
+  border-left: 1px solid rgba(255, 255, 255, 0.2); 
+  padding-left: 2.5rem; 
 }
 
 .timeline-item {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* More space between items */
   position: relative;
   color: var(--text-muted);
 }
@@ -320,17 +312,34 @@ section {
 .timeline-item strong {
   color: var(--text-main);
   display: block;
+  font-size: 1.1rem;
+  /* Uppercase and spaced out for a "Tech" feel */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
 }
 
+/* The Dot Design */
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -2.55rem;
+  /* Perfectly centered on the 1px border */
+  left: calc(-2.5rem - 6px); 
   top: 5px;
-  width: 10px;
-  height: 10px;
-  background: #fff;
+  width: 11px;
+  height: 11px;
+  background-color: #000000; /* Black center */
+  border: 2px solid #ffffff; /* White Ring */
   border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3); /* Subtle Glow */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Interactive Hover Effect */
+.timeline-item:hover::before {
+  background-color: #ffffff; /* Turns solid white on hover */
+  transform: scale(1.2);     /* Grows slightly */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
 /* Figures */
@@ -357,8 +366,7 @@ section {
   content: '➤';
   position: absolute;
   left: 0;
-  /* UPDATED: Changed from Blue variable to White for consistency */
-  color: #ffffff;
+  color: #ffffff; /* White Arrow */
   font-size: 0.8rem;
   top: 4px;
 }
