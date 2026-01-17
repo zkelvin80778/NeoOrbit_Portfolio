@@ -1,418 +1,149 @@
+/* ─────────────────────────────────────────────────────────────
+   1. GLOBAL VARIABLES & RESET
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --bg-color: #0b0d17;       /* Deep Space Blue/Black */
+  --text-main: #ffffff;      /* Pure White */
+  --text-muted: #aaaaaa;     /* Light Grey for subtext */
+  --accent-color: #007bff;   /* Electric Blue */
+  --card-bg: rgba(255, 255, 255, 0.05); /* Glass effect */
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--bg-color);
+  color: var(--text-main);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
+
+a {
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   2. NAVIGATION
+   ───────────────────────────────────────────────────────────── */
 nav {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   padding: 1rem;
-  position: fixed;
-  width: 100%;
+  position: sticky;
   top: 0;
+  width: 100%;
   z-index: 1000;
   display: flex;
   justify-content: center;
+  backdrop-filter: blur(5px);
+  box-sizing: border-box; /* Ensures padding doesn't break width */
 }
+
 nav a {
-  color: white;
   margin: 0 1.5rem;
-  text-decoration: none;
   font-weight: bold;
+  font-size: 1rem;
 }
+
 nav a:hover {
-  color: #AAAAAA;
+  color: var(--accent-color);
 }
+
+/* ─────────────────────────────────────────────────────────────
+   3. HEADER & BANNER
+   ───────────────────────────────────────────────────────────── */
 header {
   position: relative;
-  height: 100vh;
+  height: 60vh; /* Adjusted height for a portfolio page */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
   text-align: center;
   overflow: hidden;
-  background: black;
+  padding: 0 20px;
 }
 
-header::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.01) 20%,
-    rgba(0, 0, 0, 0.03) 35%,
-    rgba(0, 0, 0, 0.07) 50%,
-    rgba(0, 0, 0, 0.12) 60%,
-    rgba(0, 0, 0, 0.2) 70%,
-    rgba(0, 0, 0, 0.35) 80%,
-    rgba(0, 0, 0, 0.6) 90%,
-    rgba(0, 0, 0, 0.85) 100%
-  );
-}
-
-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("assets/Earth-Mars.png") no-repeat center center / cover;
-  z-index: 0;
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
-
-header * {
-  position: relative;
-  z-index: 2;
-}
-header img {
-  width: 100px;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.8));
-}
-h1 {
-  font-family: 'Nasalization', sans-serif;
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-}
-.tagline {
-  font-size: 1.5rem;
-  color: #ddd;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
-}
-section {
-  max-width: 800px;
-  margin: 4rem auto;
-  padding: 2rem;
-}
-.project {
-  background-color: #111;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  transition: background 0.3s ease;
-}
-.project:hover {
-  background-color: #222;
-}
-.project-card-link {
-  display: block; /* Makes the <a> tag behave like the div */
-  text-decoration: none; /* Removes the underline */
-  color: inherit; /* Makes all text inside use the parent's color (white) */
-}
-.project-card-link:hover {
-  color: inherit;
-}
-.project a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-.footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  color: #666;
-}
-.social-icons {
-  text-align: center;
-  margin-top: 2rem;
-}
-.social-icons a {
-  margin: 0 1rem;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-.social-icons a:hover {
-  color: #40C4FF;
-}
-a {
-  color: white;
-  text-decoration: none;
-}
-a:hover {
-  color: #40C4FF;
-}
+/* Background Image Container */
 .header-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('assets/Earth-Mars.png');
   background-size: cover;
   background-position: center;
-  z-index: -1;
-
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.99) 1%,
-    rgba(0, 0, 0, 0.98) 2%,
-    rgba(0, 0, 0, 0.97) 3%,
-    rgba(0, 0, 0, 0.96) 4%,
-    rgba(0, 0, 0, 0.95) 5%,
-    rgba(0, 0, 0, 0.94) 6%,
-    rgba(0, 0, 0, 0.93) 7%,
-    rgba(0, 0, 0, 0.92) 8%,
-    rgba(0, 0, 0, 0.91) 9%,
-    rgba(0, 0, 0, 0.9) 10%,
-    rgba(0, 0, 0, 0.85) 15%,
-    rgba(0, 0, 0, 0.7) 25%,
-    rgba(0, 0, 0, 0.5) 35%,
-    rgba(0, 0, 0, 0.3) 45%,
-    rgba(0, 0, 0, 0.1) 60%,
-    rgba(0, 0, 0, 0.05) 80%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  -webkit-mask-mode: luminance;
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.99) 1%,
-    rgba(0, 0, 0, 0.98) 2%,
-    rgba(0, 0, 0, 0.97) 3%,
-    rgba(0, 0, 0, 0.96) 4%,
-    rgba(0, 0, 0, 0.95) 5%,
-    rgba(0, 0, 0, 0.94) 6%,
-    rgba(0, 0, 0, 0.93) 7%,
-    rgba(0, 0, 0, 0.92) 8%,
-    rgba(0, 0, 0, 0.91) 9%,
-    rgba(0, 0, 0, 0.9) 10%,
-    rgba(0, 0, 0, 0.85) 15%,
-    rgba(0, 0, 0, 0.7) 25%,
-    rgba(0, 0, 0, 0.5) 35%,
-    rgba(0, 0, 0, 0.3) 45%,
-    rgba(0, 0, 0, 0.1) 60%,
-    rgba(0, 0, 0, 0.05) 80%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  mask-mode: luminance;
+  z-index: -2;
+  opacity: 0.6;
 }
+
+/* Vignette Mask (Darkens bottom of header) */
 .vignette-mask {
   position: absolute;
   bottom: 0;
-  width: 100%;
-  height: 30%;
-  background: linear-gradient(to bottom, transparent, black);
-  z-index: 2;
-  pointer-events: none;
-}
-/* ── CARD LAYOUT ───────────────────────────────────────────── */
-.project-card {
-  display: flex;
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 24px;
-  transition: transform 1s ease, box-shadow 1s ease;
-}
-.project-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
-}
-
-/* ── IMAGE + OVERLAY ───────────────────────────────────────── */
-.project-image {
-  flex: 0 0 40%;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-}
-.project-image::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 25%;
-  width: 75%; height: 100%;
-  background: linear-gradient(to right, rgba(30,30,30,0) 0%, #1e1e1e 100%);
-  pointer-events: none;
-}
-
-/* ── TEXT CONTENT WITH OVERLAP ─────────────────────────────── */
-.project-content {
-  flex: 1;
-  position: relative;
-  z-index: 2;
-  margin-left: -125px;   
-  padding: 20px;
-}
-
-/* ── DESCRIPTION CLAMP & TRANSITION ───────────────────────── */
-.project-description {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;      
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.6em;
-  max-height: 3.2em;          
-  transition: max-height 1s ease;
-}
-
-/* ── UNCLAMP ON HOVER ──────────────────────────────────────── */
-.project-card:hover .project-description {
-  -webkit-line-clamp: unset;
-  max-height: 1000px;         
-}
-
-/* ── STATUS ALWAYS VISIBLE ─────────────────────────────────── */
-.project-status {
-  margin-top: 1em;
-  font-weight: bold;
-}
-
-/* keep your existing hover‐scale effect below unchanged */
-.project-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
-}
-
-.project-image-heatpump {
-  background-image: url('assets/3DHeatPump.png');
-}
-
-.project-image-placeholder {
-  background-image: url('assets/PlaceHolder.png');
-}
-/* Styles for project page images and captions */
-.project-figure {
-  margin: 1rem 0; /* This was the margin on your original image */
-  padding: 0;
-}
-
-.project-figure figcaption {
-  font-size: 0.85rem;  /* Very small text */
-  color: #888888;      /* A light grey color */
-  text-align: center;
-  margin-top: 0.5rem;   /* Adds a little space below the image */
-}
-/* --- Two Column Layout --- */
-.two-column-layout {
-  display: flex;
-  flex-wrap: wrap; /* This will stack them on small screens */
-  gap: 2rem; /* Space between the text and the carousel */
-  align-items: flex-start; /* Aligns items to the top */
-}
-
-.content-column {
-  flex: 1; /* Takes up 50% of the space */
-  min-width: 300px; /* Helps with responsiveness */
-}
-
-.carousel-column {
-  flex: 1; /* Takes up 50% of the space */
-  min-width: 300px; /* Helps with responsiveness */
-}
-
-/* --- Carousel Styles --- */
-.carousel-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-.carousel-slide {
-  display: none; /* Hide all slides by default */
-}
-
-/* This is the class our JavaScript will add */
-.carousel-slide.active {
-  display: block; /* Show the active slide */
-  animation: fadeIn 0.5s ease-in-out; /* Nice fade effect */
-}
-
-.carousel-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
-}
-
-/* Next & previous buttons */
-.carousel-nav {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px; /* Centers button vertically */
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.3s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.carousel-nav.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.carousel-nav.prev {
   left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, transparent, var(--bg-color));
+  z-index: -1;
+  pointer-events: none;
 }
 
-.carousel-nav:hover {
-  background-color: rgba(0, 0, 0, 0.6);
+/* Header Typography */
+header h1 {
+  font-family: 'Nasalization', sans-serif; /* THE ONLY PLACE FOR THIS FONT */
+  font-size: 3.5rem;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+  z-index: 2;
 }
-/* General Section Styling */
+
+.tagline {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   4. CONTENT LAYOUT
+   ───────────────────────────────────────────────────────────── */
 .content-section {
   max-width: 900px;
   margin: 4rem auto;
   padding: 0 2rem;
-  line-height: 1.8;
-  color: #333;
 }
 
 .content-section h2 {
-  font-family: 'Nasalization', sans-serif; /* Keeps your custom font */
   font-size: 2rem;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #333;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
-  color: #222;
+  color: #f0f0f0;
 }
 
 .content-section h3 {
   font-size: 1.4rem;
   margin-top: 2rem;
-  color: #444;
+  color: #66b2ff; /* Light blue for hierarchy */
 }
 
-/* Highlight Box (for Key Benefits) */
-.highlight-box {
-  background-color: #f0f8ff;
-  border-left: 5px solid #007bff;
-  padding: 1.5rem;
-  margin: 2rem 0;
-  border-radius: 4px;
-  font-style: italic;
-}
+/* ─────────────────────────────────────────────────────────────
+   5. COMPONENTS (Grids, Timelines, Boxes)
+   ───────────────────────────────────────────────────────────── */
 
-/* Grid Layout for Requirements */
+/* Grid System (for Requirements) */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -421,22 +152,33 @@ a:hover {
 }
 
 .grid-item {
-  background: #f9f9f9;
+  background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .grid-item h3 {
   margin-top: 0;
   font-size: 1.2rem;
-  color: #d9534f; /* Accent color */
+  color: #ff6b6b; /* Red/Orange accent */
 }
 
-/* Timeline for Prototyping */
+/* Highlight Box */
+.highlight-box {
+  background-color: rgba(0, 123, 255, 0.15);
+  border-left: 5px solid var(--accent-color);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 4px;
+  color: #e0e0e0;
+  font-style: italic;
+}
+
+/* Vertical Timeline */
 .timeline {
   margin-top: 2rem;
-  border-left: 3px solid #ccc;
+  border-left: 3px solid #555;
   padding-left: 2rem;
 }
 
@@ -452,8 +194,9 @@ a:hover {
   top: 5px;
   width: 12px;
   height: 12px;
-  background: #555;
+  background: var(--accent-color);
   border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-color);
 }
 
 /* Styled Lists */
@@ -472,7 +215,82 @@ a:hover {
   content: '➤';
   position: absolute;
   left: 0;
-  color: #007bff;
+  color: var(--accent-color);
   font-size: 0.8rem;
   top: 4px;
+}
+
+/* Figures / Images */
+.project-figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.project-figure img {
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.project-figure figcaption {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   6. HOMEPAGE CARD STYLES (Preserved for your Index page)
+   ───────────────────────────────────────────────────────────── */
+.project-card {
+  display: flex;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+.project-image {
+  flex: 0 0 40%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.project-content {
+  flex: 1;
+  padding: 20px;
+  z-index: 2;
+}
+
+/* Description Clamp */
+.project-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: max-height 1s ease;
+}
+
+.project-card:hover .project-description {
+  -webkit-line-clamp: unset;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   7. FOOTER
+   ───────────────────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
+  margin-top: 4rem;
 }
