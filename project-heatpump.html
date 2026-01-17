@@ -14,6 +14,7 @@
 
 <nav>
   <a href="index.html">Home</a>
+  <a href="#abstract">Abstract</a>
   <a href="#overview">Overview</a>
   <a href="#requirements">Requirements</a>
   <a href="#concept-dev">Concept</a>
@@ -30,6 +31,31 @@
 </header>
 
 <main>
+
+  <section class="content-section">
+    <h2 id="abstract">Abstract</h2>
+    <p>
+      Sustained, crewed exploration of Mars presents a fundamental energy challenge, as available solar irradiance
+      is significantly reduced by heliocentric distance and further degraded by dust accumulation and atmospheric
+      [cite_start]scattering[cite: 2]. Photovoltaic systems become increasingly area-limited under these conditions, while the scarcity
+      [cite_start]and production limits of suitable radioisotopes constrain radioisotope thermoelectric generators[cite: 3].
+    </p>
+    <p>
+      These opposing limitations motivate intermediate energy architectures that decouple light collection from direct
+      electrical conversion. This project investigates a solar concentrator system that converts diffuse solar flux into
+      [cite_start]thermal energy before electrical utilization[cite: 4, 5]. A segmented array of parabolic mirrors is arranged in a hexagonal
+      geometry to focus sunlight onto a centralized interface that serves a dual function: acting as a heat exchanger
+      [cite_start]for a water-based heat pump system and as a mounting surface for thermoelectric generator modules[cite: 6].
+    </p>
+    <p>
+      The concentrator was developed through multiple iterations of mirror geometry, informed by optical alignment
+      [cite_start]challenges, focal convergence behavior, and fabrication constraints[cite: 7]. Rather than maximizing mirror count, the
+      design emphasizes precision alignment and controlled energy flow, supported by a sun-tracking mechanism
+      [cite_start]using light-dependent resistors and servo actuation[cite: 8]. Experimental evaluation focused on validating the
+      sun-tracking system and visually observing light convergence behavior at the focal region, revealing strong
+      [cite_start]sensitivity to angular misalignment and surface imperfections[cite: 9].
+    </p>
+  </section>
 
   <section class="content-section">
     <h2 id="overview">1. Executive Overview</h2>
@@ -64,9 +90,9 @@
     <h3>Inspiration</h3>
     <p>
       This project started while I was looking into affordable heating and cooling options for my mother's restaurant,
-      which didn't have a centralized HVAC system. Trying to understand why many solutions were either too
+      [cite_start]which didn't have a centralized HVAC system[cite: 16]. Trying to understand why many solutions were either too
       expensive or poorly scalable pushed me to think more carefully about how energy systems are designed in the
-      [cite_start]first place[cite: 16, 17].
+      [cite_start]first place[cite: 17].
     </p>
     <p>
       That same line of reasoning led me to draw parallels with space-based energy systems, where
@@ -113,12 +139,12 @@
     <p>
       The central interface acts as both a heat-pump heat exchanger and a thermoelectric generator interface. 
       Combining these roles concentrates optical alignment, thermal collection, and conversion interfaces into a
-      single, mechanically rigid reference point. [cite_start]This reduces part count and alignment degrees of freedom [cite: 44-48].
+      single, mechanically rigid reference point. [cite_start]This reduces part count and alignment degrees of freedom [cite: 45-48].
     </p>
 
     <figure class="project-figure">
       <img src="assets/optics-diagram-2.png" alt="System Architecture Diagram" style="width: 100%; max-width: 600px;">
-      <figcaption>Figure 3.1: Optical path and mirror arrangement.</figcaption>
+      [cite_start]<figcaption>Figure 3.1: Optical path and mirror arrangement[cite: 60].</figcaption>
     </figure>
   </section>
 
@@ -150,7 +176,7 @@
       </div>
       <div class="timeline-item">
         <strong>Iteration 3</strong>
-        Modular design with separated reflective surfaces. [cite_start]<br><em>Result:</em> Better optical quality, though fragile aluminum foil remains a limitation [cite: 174-176].
+        Modular design with separated reflective surfaces. [cite_start]<br><em>Result:</em> Better optical quality, though fragile aluminum foil remains a limitation[cite: 174, 176].
       </div>
     </div>
     
@@ -176,7 +202,7 @@
     <h3>LDR Sensor Array</h3>
     <p>
       The system uses a Light Dependent Resistor (LDR) array to track the sun. Four sensors are arranged in a quadrant. 
-      [cite_start]When the system is aligned, all four sensors report equal light intensity [cite: 91-93]. 
+      [cite_start]When the system is aligned, all four sensors report equal light intensity[cite: 91, 93]. 
       The control objective is not absolute sun position, but the minimization of differential light intensity. 
       [cite_start]This allows the system to self-correct using simple servo motors[cite: 96].
     </p>
@@ -184,14 +210,14 @@
     <h3>Why Alignment Matters</h3>
     <p>
       Maintaining direct optical exposure to the Sun throughout the day maximizes the total collected energy for a
-      fixed system footprint. Even small angular misalignments reduce the duration of effective concentration.
+      fixed system footprint. [cite_start]Even small angular misalignments reduce the duration of effective concentration[cite: 99, 100].
       Precise alignment increases overall system efficiency by sustaining optimal exposure over time rather than 
-      [cite_start]relying on increased mirror count [cite: 99-101].
+      [cite_start]relying on increased mirror count[cite: 101].
     </p>
 
     <figure class="project-figure">
       <img src="assets/optics-render-1.jpg" alt="LDR Sensor Array" style="width: 100%; max-width: 500px;">
-      <figcaption>Custom LDR Sensor Board for Sun Tracking</figcaption>
+      [cite_start]<figcaption>Custom LDR Sensor Board for Sun Tracking[cite: 89].</figcaption>
     </figure>
   </section>
 
@@ -201,15 +227,15 @@
     <h3>Concentrated Flux Interface</h3>
     <p>
       Converging sunlight from the mirror system is directed onto a central receiver plate, where optical energy is
-      absorbed and converted into thermal energy. This interface serves as the transition point between the optical
-      [cite_start]system and downstream thermal utilization[cite: 146, 147].
+      [cite_start]absorbed and converted into thermal energy[cite: 146]. This interface serves as the transition point between the optical
+      [cite_start]system and downstream thermal utilization[cite: 147].
     </p>
 
     <h3>Material Considerations</h3>
     <p>
       Structural components were fabricated from PETG to simulate the use of plastics in a Martian
-      mission context, inspired by the potential reuse of plastic waste. For optical surfaces, aluminum foil was used 
-      [cite_start]to approximate thin reflective sheet materials commonly found on spacecraft [cite: 150-152].
+      [cite_start]mission context, inspired by the potential reuse of plastic waste[cite: 150]. For optical surfaces, aluminum foil was used 
+      [cite_start]to approximate thin reflective sheet materials commonly found on spacecraft[cite: 152].
     </p>
     
     <p>
@@ -224,8 +250,8 @@
     <h3>Testing Setup</h3>
     <p>
       A 1:5 scale prototype was constructed to enable rapid fabrication. The system used four custom LDR sensor modules, 
-      two servo motors, and an Arduino Nano. Testing was performed indoors using a handheld flashlight as a 
-      [cite_start]controllable light source [cite: 158-160].
+      [cite_start]two servo motors, and an Arduino Nano[cite: 158, 159]. Testing was performed indoors using a handheld flashlight as a 
+      [cite_start]controllable light source[cite: 160].
     </p>
 
     <h3>Key Observations</h3>
@@ -239,10 +265,10 @@
   <section class="content-section">
     <h2 id="future">8. Future Scalability</h2>
     <ul class="styled-list">
-      [cite_start]<li><strong>Scientific Data:</strong> The tracking sensors can be used to log atmospheric dust and solar variability[cite: 180].</li>
+      [cite_start]<li><strong>Scientific Data:</strong> The tracking sensors can be used to log atmospheric dust and solar variability[cite: 180, 181].</li>
       [cite_start]<li><strong>Battery Buffering:</strong> Storing excess thermal energy for night-time release[cite: 182].</li>
       [cite_start]<li><strong>Orbital Reflectors:</strong> Using orbital mirrors to redirect sunlight to surface concentrators during Martian night[cite: 184].</li>
-      [cite_start]<li><strong>System Scalability:</strong> At scale, such an arrangement would resemble a wind farm, where many identical modules contribute collectively[cite: 187].</li>
+      [cite_start]<li><strong>System Scalability:</strong> At scale, such an arrangement would resemble a wind farm, where many identical modules contribute collectively[cite: 186, 187].</li>
     </ul>
   </section>
 
