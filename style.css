@@ -5,7 +5,7 @@
   --bg-color: #000000;       /* Pure Black */
   --text-main: #ffffff;      /* Pure White */
   --text-muted: #cccccc;     /* Light Grey for subtext */
-  --accent-color: #007bff;   /* Blue for links/accents only */
+  --accent-color: #007bff;   /* Blue for LINKS ONLY (Hover states) */
   --card-bg: #111111;        /* Very dark grey for cards */
 }
 
@@ -80,7 +80,6 @@ header {
 }
 
 /* --- CATEGORY 1: HOME PAGE (DEFAULT) --- */
-/* This style applies to the Home Page (Dark Space Image) */
 .header-bg {
   position: absolute;
   top: 0;
@@ -100,10 +99,10 @@ header {
 }
 
 /* --- CATEGORY 2: PROJECT PAGES (AUTOMATIC OVERRIDE) --- */
-/* This detects if the HTML has a custom inline image (style="...") */
+/* This detects if the HTML has a custom inline image */
 .header-bg[style*="background-image"] {
-  /* Dim the background so white text is readable */
-  opacity: 0.5 !important; 
+  /* Dim the background MORE so white text is readable against bright renders */
+  opacity: 0.4 !important; 
   /* Remove the brightness filter so colors look natural */
   filter: none !important; 
 }
@@ -245,7 +244,7 @@ section {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   5. PROJECT PAGE CONTENT (Grid, Timeline, etc)
+   5. PROJECT PAGE CONTENT
    ───────────────────────────────────────────────────────────── */
 .content-section {
   max-width: 900px;
@@ -292,11 +291,12 @@ section {
   margin-bottom: 1rem;
 }
 
-/* Highlight Box */
+/* --- THE KEY BENEFIT CARD --- */
 .highlight-box {
   background-color: #111;
   border: 1px solid #333;
-  border-left: 5px solid var(--accent-color);
+  /* UPDATED: Changed from Blue variable to White */
+  border-left: 5px solid #ffffff;
   padding: 1.5rem;
   margin: 2rem 0;
   border-radius: 4px;
@@ -357,7 +357,8 @@ section {
   content: '➤';
   position: absolute;
   left: 0;
-  color: var(--accent-color);
+  /* UPDATED: Changed from Blue variable to White for consistency */
+  color: #ffffff;
   font-size: 0.8rem;
   top: 4px;
 }
