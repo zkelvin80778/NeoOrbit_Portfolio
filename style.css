@@ -91,11 +91,11 @@ header {
   background-size: cover;
   background-position: center;
   z-index: 0;
-  /* UPDATED: Increased opacity to make it BRIGHTER (was 0.6) */
-  opacity: 0.85; 
+  /* UPDATED: Full opacity (No dimming) */
+  opacity: 1; 
 }
 
-/* Vignette Mask (Darkens bottom of header) */
+/* Vignette Mask (Darkens only the very bottom to blend with body) */
 .vignette-mask {
   position: absolute;
   bottom: 0;
@@ -112,7 +112,7 @@ header img {
   width: 120px; 
   z-index: 2;
   filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.8));
-  /* UPDATED: Reduced margin to squish logo closer to text */
+  /* Squished spacing */
   margin-bottom: 0.5rem; 
 }
 
@@ -125,7 +125,7 @@ header h1 {
   letter-spacing: 2px;
   position: relative;
   z-index: 2;
-  /* UPDATED: Removed bottom margin to squish Name closer to Motto */
+  /* Squished spacing */
   margin: 0; 
   line-height: 1.1; 
 }
@@ -133,13 +133,15 @@ header h1 {
 /* Typography - Motto (Tagline) */
 .tagline {
   font-size: 1.2rem;
-  /* UPDATED: Changed from muted grey to WHITE */
-  color: white; 
+  /* UPDATED: Solid White */
+  color: #ffffff; 
+  opacity: 1;
   letter-spacing: 1px;
   position: relative;
   z-index: 2;
-  /* UPDATED: Added small top margin for perfect spacing */
+  /* Squished spacing */
   margin-top: 5px; 
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Adds readability against bright bg */
 }
 
 
