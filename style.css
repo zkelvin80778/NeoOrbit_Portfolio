@@ -5,7 +5,8 @@
   --bg-color: #000000;       /* Pure Black */
   --text-main: #ffffff;      /* Pure White */
   --text-muted: #cccccc;     /* Light Grey for subtext */
-  --accent-color: #007bff;   /* Blue for LINKS ONLY */
+  /* UPDATED: Changed from Blue (#007bff) to White (#ffffff) */
+  --accent-color: #ffffff;   
   --card-bg: #111111;        /* Very dark grey for cards */
 }
 
@@ -32,14 +33,15 @@ a {
 }
 
 a:hover {
+  /* This will now turn WHITE on hover */
   color: var(--accent-color);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Added subtle glow for white-on-white visibility */
 }
 
 /* ─────────────────────────────────────────────────────────────
-   2. NAVIGATION (Fixed Position Fix)
+   2. NAVIGATION (Fixed Position)
    ───────────────────────────────────────────────────────────── */
 nav {
-  /* UPDATED: Fixed makes it float ON TOP of the image */
   position: fixed; 
   top: 0;
   left: 0;
@@ -65,6 +67,7 @@ nav a {
 }
 
 nav a:hover {
+  /* Ensures Nav links turn bright white */
   color: var(--accent-color);
 }
 
@@ -102,7 +105,6 @@ header {
 
 /* --- CATEGORY 2: PROJECT PAGES --- */
 .header-bg[style*="background-image"] {
-  /* Brightness Override */
   opacity: 0.8 !important; 
   filter: none !important; 
 }
@@ -175,8 +177,8 @@ section {
 
 .project-card:hover {
   transform: scale(1.02);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
-  border-color: var(--accent-color);
+  box-shadow: 0 6px 16px rgba(255,255,255,0.1); /* White shadow on hover */
+  border-color: var(--accent-color); /* White border on hover */
 }
 
 .project-image {
@@ -288,7 +290,7 @@ section {
 .highlight-box {
   background-color: #111;
   border: 1px solid #333;
-  border-left: 5px solid #ffffff; /* White Accent */
+  border-left: 5px solid var(--accent-color); /* Uses the new White accent */
   padding: 1.5rem;
   margin: 2rem 0;
   border-radius: 4px;
@@ -409,7 +411,7 @@ section {
   content: '➤';
   position: absolute;
   left: 0;
-  color: #ffffff;
+  color: var(--accent-color); /* Now White */
   font-size: 0.8rem;
   top: 4px;
 }
