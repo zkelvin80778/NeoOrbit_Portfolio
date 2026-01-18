@@ -36,23 +36,23 @@ a:hover {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   2. NAVIGATION (Updated Height & Transparency)
+   2. NAVIGATION (Fixed Position Fix)
    ───────────────────────────────────────────────────────────── */
 nav {
-  /* UPDATED: 50% Transparency */
-  background: rgba(0, 0, 0, 0.5); 
-  /* UPDATED: Reduced padding (75% of previous size) */
-  padding: 0.75rem; 
-  position: sticky;
+  /* UPDATED: Fixed makes it float ON TOP of the image */
+  position: fixed; 
   top: 0;
+  left: 0;
   width: 100%;
+  
+  /* Visual Styles */
+  background: rgba(0, 0, 0, 0.5); 
+  padding: 0.75rem; 
   z-index: 1000;
   display: flex;
   justify-content: center;
   flex-wrap: wrap; 
-  /* Standard blur for readability */
   backdrop-filter: blur(10px);
-  /* Safari support for blur */
   -webkit-backdrop-filter: blur(10px); 
   box-sizing: border-box;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -69,7 +69,7 @@ nav a:hover {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   3. HEADER & BANNER (Brighter Project Image)
+   3. HEADER & BANNER
    ───────────────────────────────────────────────────────────── */
 header {
   position: relative;
@@ -101,9 +101,8 @@ header {
 }
 
 /* --- CATEGORY 2: PROJECT PAGES --- */
-/* This specific selector targets the inline style used in your project html */
 .header-bg[style*="background-image"] {
-  /* UPDATED: Increased opacity to 0.8 (Bright!) */
+  /* Brightness Override */
   opacity: 0.8 !important; 
   filter: none !important; 
 }
