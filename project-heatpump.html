@@ -162,6 +162,11 @@
       offset secondary mirror that redirects the concentrated light onto the central receiver plate.
     </p>
 
+    <figure class="project-figure">
+      <img src="assets/hex-tiling.png" alt="Hexagonal Mirror Tiling Strategy" style="width: 100%; max-width: 400px;">
+      <figcaption>Mirror tiling strategy maximizing packing efficiency.</figcaption>
+    </figure>
+
     <h3>Iterative Prototyping</h3>
     <p>The design evolved through three major iterations to solve manufacturing defects:</p>
     
@@ -202,10 +207,23 @@
     <h3>LDR Sensor Array</h3>
     <p>
       The system uses a Light Dependent Resistor (LDR) array to track the sun. Four sensors are arranged in a quadrant. 
-      When the system is aligned, all four sensors report equal light intensity. 
+      When the system is aligned, all four sensors report equal light intensity.
+    </p>
+
+    <figure class="project-figure">
+      <img src="assets/ldr-pcb-layout.png" alt="Custom LDR Board Design" style="width: 100%; max-width: 500px;">
+      <figcaption>Custom PCB design for the LDR sensor module.</figcaption>
+    </figure>
+
+    <p>
       The control objective is not absolute sun position, but the minimization of differential light intensity. 
       This allows the system to self-correct using simple servo motors.
     </p>
+
+    <figure class="project-figure">
+      <img src="assets/tracking-vis.png" alt="Sensor Quad Visualization" style="width: 100%; max-width: 600px;">
+      <figcaption>Real-time sensor data visualization: Aligned vs. Misaligned states.</figcaption>
+    </figure>
 
     <h3>Why Alignment Matters</h3>
     <p>
@@ -214,11 +232,6 @@
       Precise alignment increases overall system efficiency by sustaining optimal exposure over time rather than 
       relying on increased mirror count.
     </p>
-
-    <figure class="project-figure">
-      <img src="assets/optics-render-1.jpg" alt="LDR Sensor Array" style="width: 100%; max-width: 500px;">
-      <figcaption>Custom LDR Sensor Board for Sun Tracking.</figcaption>
-    </figure>
   </section>
 
   <section class="content-section">
