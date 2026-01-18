@@ -67,7 +67,7 @@ nav a:hover {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   3. HEADER & BANNER (Rebuilt from Scratch)
+   3. HEADER & BANNER
    ───────────────────────────────────────────────────────────── */
 header {
   position: relative;
@@ -84,7 +84,6 @@ header {
 }
 
 /* --- BACKGROUND IMAGES --- */
-/* Base Style (Home Page) */
 .header-bg {
   position: absolute;
   top: 0;
@@ -94,7 +93,7 @@ header {
   background-image: url('assets/Earth-Mars.png'); 
   background-size: cover;
   background-position: center;
-  z-index: 1; /* Lowest layer */
+  z-index: 1; 
   opacity: 1; 
   filter: brightness(1.3) contrast(1.1); 
 }
@@ -113,7 +112,7 @@ header {
   width: 100%;
   height: 40%; 
   background: linear-gradient(to bottom, transparent 0%, black 100%);
-  z-index: 2; /* Sits above image */
+  z-index: 2; 
   pointer-events: none;
 }
 
@@ -121,14 +120,14 @@ header {
 header img {
   width: 120px; 
   position: relative;
-  z-index: 10; /* High Priority */
+  z-index: 10; 
   filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
   margin-bottom: 0.5rem; 
 }
 
-/* --- TYPOGRAPHY (The Fix) --- */
+/* --- TYPOGRAPHY --- */
 
-/* Main Title (Name) */
+/* Main Title */
 header h1 {
   font-family: 'Nasalization', sans-serif;
   font-size: 3.5rem;
@@ -137,29 +136,23 @@ header h1 {
   letter-spacing: 2px;
   margin: 0; 
   line-height: 1.1; 
-  
-  /* CRITICAL: Ensures text sits ON TOP of everything */
   position: relative;
   z-index: 10; 
-  
-  /* Solid shadow for readability */
   text-shadow: 0 4px 8px rgba(0,0,0,1); 
 }
 
 /* The Motto / Tagline */
-/* Targeted via 'header p' to catch BOTH index.html and project pages */
 header p {
   font-size: 1.2rem;
-  font-weight: 700; /* Bold */
-  color: #ffffff;   /* Solid White */
+  
+  /* UPDATED: Changed from 700 (Bold) to normal */
+  font-weight: normal; 
+  
+  color: #ffffff;   
   letter-spacing: 1px;
   margin-top: 0.5rem;
-  
-  /* CRITICAL: Ensures text sits ON TOP of everything */
   position: relative;
   z-index: 10;
-  
-  /* Solid shadow for readability against bright backgrounds */
   text-shadow: 0 2px 4px rgba(0,0,0,1);
 }
 
