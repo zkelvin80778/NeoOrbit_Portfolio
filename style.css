@@ -5,8 +5,7 @@
   --bg-color: #000000;       /* Pure Black */
   --text-main: #ffffff;      /* Pure White */
   --text-muted: #cccccc;     /* Light Grey for subtext */
-  /* UPDATED: Changed from Blue (#007bff) to White (#ffffff) */
-  --accent-color: #ffffff;   
+  --accent-color: #ffffff;   /* Solid White Accents */
   --card-bg: #111111;        /* Very dark grey for cards */
 }
 
@@ -33,22 +32,19 @@ a {
 }
 
 a:hover {
-  /* This will now turn WHITE on hover */
   color: var(--accent-color);
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Added subtle glow for white-on-white visibility */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
 /* ─────────────────────────────────────────────────────────────
-   2. NAVIGATION (Fixed Position)
+   2. NAVIGATION (Fixed & Transparent)
    ───────────────────────────────────────────────────────────── */
 nav {
   position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
-  
-  /* Visual Styles */
-  background: rgba(0, 0, 0, 0.5); 
+  background: rgba(0, 0, 0, 0.5); /* 50% Black */
   padding: 0.75rem; 
   z-index: 1000;
   display: flex;
@@ -67,12 +63,11 @@ nav a {
 }
 
 nav a:hover {
-  /* Ensures Nav links turn bright white */
   color: var(--accent-color);
 }
 
 /* ─────────────────────────────────────────────────────────────
-   3. HEADER & BANNER
+   3. HEADER & BANNER (Rebuilt from Scratch)
    ───────────────────────────────────────────────────────────── */
 header {
   position: relative;
@@ -88,7 +83,8 @@ header {
   z-index: 0; 
 }
 
-/* --- CATEGORY 1: HOME PAGE --- */
+/* --- BACKGROUND IMAGES --- */
+/* Base Style (Home Page) */
 .header-bg {
   position: absolute;
   top: 0;
@@ -98,18 +94,18 @@ header {
   background-image: url('assets/Earth-Mars.png'); 
   background-size: cover;
   background-position: center;
-  z-index: 1;
+  z-index: 1; /* Lowest layer */
   opacity: 1; 
   filter: brightness(1.3) contrast(1.1); 
 }
 
-/* --- CATEGORY 2: PROJECT PAGES --- */
+/* Override for Project Pages */
 .header-bg[style*="background-image"] {
   opacity: 0.8 !important; 
   filter: none !important; 
 }
 
-/* Vignette Mask */
+/* --- VIGNETTE MASK --- */
 .vignette-mask {
   position: absolute;
   bottom: 0;
@@ -117,41 +113,54 @@ header {
   width: 100%;
   height: 40%; 
   background: linear-gradient(to bottom, transparent 0%, black 100%);
-  z-index: 2;
+  z-index: 2; /* Sits above image */
   pointer-events: none;
 }
 
-/* Content Layer (Top) */
+/* --- LOGO --- */
 header img {
   width: 120px; 
   position: relative;
-  z-index: 100; 
-  filter: drop-shadow(0 0 5px rgba(0,0,0,1));
+  z-index: 10; /* High Priority */
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
   margin-bottom: 0.5rem; 
 }
 
+/* --- TYPOGRAPHY (The Fix) --- */
+
+/* Main Title (Name) */
 header h1 {
   font-family: 'Nasalization', sans-serif;
   font-size: 3.5rem;
   font-weight: normal; 
   text-transform: uppercase;
   letter-spacing: 2px;
-  position: relative;
-  z-index: 100; 
   margin: 0; 
   line-height: 1.1; 
-  text-shadow: 0 2px 8px rgba(0,0,0,0.8); 
+  
+  /* CRITICAL: Ensures text sits ON TOP of everything */
+  position: relative;
+  z-index: 10; 
+  
+  /* Solid shadow for readability */
+  text-shadow: 0 4px 8px rgba(0,0,0,1); 
 }
 
-.tagline {
+/* The Motto / Tagline */
+/* Targeted via 'header p' to catch BOTH index.html and project pages */
+header p {
   font-size: 1.2rem;
-  font-weight: 700; 
-  color: #ffffff; 
+  font-weight: 700; /* Bold */
+  color: #ffffff;   /* Solid White */
   letter-spacing: 1px;
+  margin-top: 0.5rem;
+  
+  /* CRITICAL: Ensures text sits ON TOP of everything */
   position: relative;
-  z-index: 100; 
-  margin-top: 5px; 
-  text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+  z-index: 10;
+  
+  /* Solid shadow for readability against bright backgrounds */
+  text-shadow: 0 2px 4px rgba(0,0,0,1);
 }
 
 
@@ -177,8 +186,8 @@ section {
 
 .project-card:hover {
   transform: scale(1.02);
-  box-shadow: 0 6px 16px rgba(255,255,255,0.1); /* White shadow on hover */
-  border-color: var(--accent-color); /* White border on hover */
+  box-shadow: 0 6px 16px rgba(255,255,255,0.1);
+  border-color: var(--accent-color);
 }
 
 .project-image {
@@ -198,7 +207,6 @@ section {
   pointer-events: none;
 }
 
-/* Specific Project Images */
 .project-image-heatpump {
   background-image: url('assets/3DHeatPump.png');
 }
@@ -262,7 +270,6 @@ section {
   color: var(--text-muted);
 }
 
-/* Grid System */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -286,11 +293,10 @@ section {
   margin-bottom: 1rem;
 }
 
-/* Key Benefit Card */
 .highlight-box {
   background-color: #111;
   border: 1px solid #333;
-  border-left: 5px solid var(--accent-color); /* Uses the new White accent */
+  border-left: 5px solid var(--accent-color);
   padding: 1.5rem;
   margin: 2rem 0;
   border-radius: 4px;
@@ -298,7 +304,6 @@ section {
   font-style: italic;
 }
 
-/* Timeline */
 .timeline {
   margin-top: 3rem;
   margin-left: 1rem;
@@ -341,7 +346,6 @@ section {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
-/* Photo Grid */
 .iteration-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
@@ -387,7 +391,6 @@ section {
   font-weight: bold;
 }
 
-/* Figures */
 .project-figure {
   margin: 3rem 0;
   text-align: center;
@@ -403,7 +406,6 @@ section {
   font-style: italic;
 }
 
-/* Styled Lists */
 .styled-list { list-style: none; padding: 0; }
 .styled-list li { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; color: var(--text-muted); }
 .styled-list li strong { color: var(--text-main); }
@@ -411,12 +413,11 @@ section {
   content: '➤';
   position: absolute;
   left: 0;
-  color: var(--accent-color); /* Now White */
+  color: var(--accent-color);
   font-size: 0.8rem;
   top: 4px;
 }
 
-/* Video Container */
 .video-container {
   position: relative;
   width: 100%;
