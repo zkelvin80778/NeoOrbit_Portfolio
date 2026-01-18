@@ -16,10 +16,7 @@
   <a href="index.html">Home</a>
   <a href="#abstract">Abstract</a>
   <a href="#overview">Overview</a>
-  <a href="#requirements">Requirements</a>
-  <a href="#concept-dev">Concept</a>
-  <a href="#fabrication">Fabrication</a>
-  <a href="#testing">Testing</a>
+  <a href="#requirements">Motivation</a> <a href="#concept-dev">Architecture</a> <a href="#fabrication">Optics</a>       <a href="#tracking">Tracking</a>        <a href="#thermal">Thermal</a>          <a href="#testing">Testing</a>
   <a href="#future">Future</a>
   <a href="#video">Video</a>
 </nav>
@@ -38,21 +35,21 @@
     <p>
       Sustained, crewed exploration of Mars presents a fundamental energy challenge, as available solar irradiance
       is significantly reduced by heliocentric distance and further degraded by dust accumulation and atmospheric
-      scattering. Photovoltaic systems become increasingly area-limited under these conditions, while the scarcity
-      and production limits of suitable radioisotopes constrain radioisotope thermoelectric generators.
+      [cite_start]scattering[cite: 2]. Photovoltaic systems become increasingly area-limited under these conditions, while the scarcity
+      [cite_start]and production limits of suitable radioisotopes constrain radioisotope thermoelectric generators[cite: 3].
     </p>
     <p>
       These opposing limitations motivate intermediate energy architectures that decouple light collection from direct
       electrical conversion. This project investigates a solar concentrator system that converts diffuse solar flux into
-      thermal energy before electrical utilization. A segmented array of parabolic mirrors is arranged in a hexagonal
+      [cite_start]thermal energy before electrical utilization[cite: 5]. A segmented array of parabolic mirrors is arranged in a hexagonal
       geometry to focus sunlight onto a centralized interface that serves a dual function: acting as a heat exchanger
-      for a water-based heat pump system and as a mounting surface for thermoelectric generator modules.
+      [cite_start]for a water-based heat pump system and as a mounting surface for thermoelectric generator modules[cite: 6].
     </p>
     <p>
       The concentrator was developed through multiple iterations of mirror geometry, informed by optical alignment
-      challenges, focal convergence behavior, and fabrication constraints. Rather than maximizing mirror count, the
+      [cite_start]challenges, focal convergence behavior, and fabrication constraints[cite: 7]. Rather than maximizing mirror count, the
       design emphasizes precision alignment and controlled energy flow, supported by a sun-tracking mechanism
-      using light-dependent resistors and servo actuation. Experimental evaluation focused on validating the
+      [cite_start]using light-dependent resistors and servo actuation[cite: 8]. Experimental evaluation focused on validating the
       sun-tracking system and visually observing light convergence behavior at the focal region, revealing strong
       sensitivity to angular misalignment and surface imperfections.
     </p>
@@ -67,7 +64,7 @@
       irradiance, frequent dust accumulation, and limited opportunities for resupply. Photovoltaic systems scale
       primarily through increased surface area and become constrained by deployment complexity under these
       conditions, while the availability and production rates of suitable radioisotopes limit radioisotope thermoelectric
-      generators.
+      [cite_start]generators[cite: 13].
     </p>
     <p>
       The resulting challenge is to develop a scalable surface energy architecture that can operate under
@@ -80,7 +77,7 @@
       converting diffuse solar irradiance into thermal energy before electrical utilization. A segmented array of
       parabolic mirrors arranged in a hexagonal geometry focuses sunlight onto a centralized interface that serves
       both as a heat exchanger for a water-based heat pump system and as a mounting surface for thermoelectric
-      generator modules.
+      [cite_start]generator modules[cite: 21].
     </p>
     
     <div class="highlight-box">
@@ -91,7 +88,7 @@
     <h3>Inspiration</h3>
     <p>
       This project started while I was looking into affordable heating and cooling options for my mother's restaurant,
-      which didn't have a centralized HVAC system. Trying to understand why many solutions were either too
+      [cite_start]which didn't have a centralized HVAC system[cite: 16]. Trying to understand why many solutions were either too
       expensive or poorly scalable pushed me to think more carefully about how energy systems are designed in the
       first place.
     </p>
@@ -108,19 +105,19 @@
       <div class="grid-item">
         <h3>Energy Density Limits</h3>
         <p>
-          On Mars, solar power is reduced by heliocentric distance and degraded by dust. Photovoltaic systems struggle with non-uniform illumination. This motivates approaches that increase usable energy density without massive footprints.
+          [cite_start]On Mars, solar power is reduced by heliocentric distance and degraded by dust[cite: 24]. Photovoltaic systems struggle with non-uniform illumination. [cite_start]This motivates approaches that increase usable energy density without massive footprints[cite: 26].
         </p>
       </div>
       <div class="grid-item">
         <h3>Square-Root Law</h3>
         <p>
-          Under concentration, PV current increases linearly while voltage increases logarithmically, leading to diminishing returns. Thermal loading becomes a dominant issue, restricting high-flux PV scaling.
+          [cite_start]Under concentration, PV current increases linearly while voltage increases logarithmically, leading to diminishing returns[cite: 28]. [cite_start]Thermal loading becomes a dominant issue, restricting high-flux PV scaling[cite: 29].
         </p>
       </div>
       <div class="grid-item">
         <h3>Thermal vs. Electrical</h3>
         <p>
-          Thermal pathways tolerate high flux and uneven light better than direct electrical conversion. Absorbing light as heat allows for redistribution and buffering, reducing sensitivity to alignment errors.
+          [cite_start]Thermal pathways tolerate high flux and uneven light better than direct electrical conversion[cite: 32]. [cite_start]Absorbing light as heat allows for redistribution and buffering, reducing sensitivity to alignment errors[cite: 33].
         </p>
       </div>
     </div>
@@ -130,17 +127,17 @@
     <h2 id="concept-dev">3. System Architecture</h2>
     <h3>Overall Energy Flow</h3>
     <ul class="styled-list">
-      <li><strong>Collection:</strong> 12 hexagonal parabolic mirrors concentrate sunlight toward a shared zone.</li>
-      <li><strong>Redirection:</strong> An offset secondary mirror intercepts and redirects the beam to a central target.</li>
-      <li><strong>Absorption:</strong> The central plate absorbs flux as heat at a controlled interface.</li>
-      <li><strong>Utilization:</strong> Heat is transferred to the heat exchanger or thermoelectric stack.</li>
+      [cite_start]<li><strong>Collection:</strong> 12 hexagonal parabolic mirrors concentrate sunlight toward a shared zone[cite: 40].</li>
+      [cite_start]<li><strong>Redirection:</strong> An offset secondary mirror intercepts and redirects the beam to a central target[cite: 41].</li>
+      [cite_start]<li><strong>Absorption:</strong> The central plate absorbs flux as heat at a controlled interface[cite: 42].</li>
+      [cite_start]<li><strong>Utilization:</strong> Heat is transferred to the heat exchanger or thermoelectric stack[cite: 43].</li>
     </ul>
 
     <h3>Dual-Role Central Element</h3>
     <p>
       The central interface acts as both a heat-pump heat exchanger and a thermoelectric generator interface. 
       Combining these roles concentrates optical alignment, thermal collection, and conversion interfaces into a
-      single, mechanically rigid reference point. This reduces part count and alignment degrees of freedom.
+      single, mechanically rigid reference point. [cite_start]This reduces part count and alignment degrees of freedom[cite: 47, 48].
     </p>
 
     <figure class="project-figure">
@@ -153,14 +150,14 @@
     <h2 id="fabrication">4. Optical Design & Fabrication</h2>
     <h3>Mirror Selection</h3>
     <p>
-      Parabolic mirrors were selected to collimate sunlight into a predictable focal region. A 250 mm hexagonal edge length was chosen to balance manufacturability, stiffness, and handling.
+      Parabolic mirrors were selected to collimate sunlight into a predictable focal region. [cite_start]A 250 mm hexagonal edge length was chosen to balance manufacturability, stiffness, and handling[cite: 52].
     </p>
 
     <h3>Segmentation & Focal Strategy</h3>
     <p>
-      A hexagonal mirror outline was used to maximize packing efficiency around a central target.
+      [cite_start]A hexagonal mirror outline was used to maximize packing efficiency around a central target[cite: 55].
       Instead of forcing all segments to intersect directly at the receiver, the converging beams are intercepted by an 
-      offset secondary mirror that redirects the concentrated light onto the central receiver plate.
+      [cite_start]offset secondary mirror that redirects the concentrated light onto the central receiver plate[cite: 60].
     </p>
 
     <figure class="project-figure">
@@ -174,15 +171,15 @@
     <div class="timeline">
       <div class="timeline-item">
         <strong>Iteration 1</strong>
-        Used hot glue for assembly. <br><em>Failure:</em> Created protrusions that distorted the mirror surface.
+        Used hot glue for assembly. [cite_start]<br><em>Failure:</em> Created protrusions that distorted the mirror surface[cite: 171].
       </div>
       <div class="timeline-item">
         <strong>Iteration 2</strong>
-        Printed flat to save weight. <br><em>Failure:</em> Warping occurred across unsupported bridge regions.
+        Printed flat to save weight. [cite_start]<br><em>Failure:</em> Warping occurred across unsupported bridge regions[cite: 173].
       </div>
       <div class="timeline-item">
         <strong>Iteration 3</strong>
-        Modular design with separated reflective surfaces. <br><em>Result:</em> Better optical quality, though fragile aluminum foil remains a limitation.
+        Modular design with separated reflective surfaces. [cite_start]<br><em>Result:</em> Better optical quality, though fragile aluminum foil remains a limitation[cite: 174, 176].
       </div>
     </div>
     
@@ -207,8 +204,8 @@
     
     <h3>LDR Sensor Array</h3>
     <p>
-      The system uses a Light Dependent Resistor (LDR) array to track the sun. Four sensors are arranged in a quadrant. 
-      When the system is aligned, all four sensors report equal light intensity.
+      The system uses a Light Dependent Resistor (LDR) array to track the sun. [cite_start]Four sensors are arranged in a quadrant[cite: 91]. 
+      [cite_start]When the system is aligned, all four sensors report equal light intensity[cite: 93].
     </p>
 
     <figure class="project-figure">
@@ -218,7 +215,7 @@
 
     <p>
       The control objective is not absolute sun position, but the minimization of differential light intensity. 
-      This allows the system to self-correct using simple servo motors.
+      [cite_start]This allows the system to self-correct using simple servo motors[cite: 96].
     </p>
 
     <figure class="project-figure">
@@ -229,9 +226,9 @@
     <h3>Why Alignment Matters</h3>
     <p>
       Maintaining direct optical exposure to the Sun throughout the day maximizes the total collected energy for a
-      fixed system footprint. Even small angular misalignments reduce the duration of effective concentration.
+      fixed system footprint. [cite_start]Even small angular misalignments reduce the duration of effective concentration[cite: 100].
       Precise alignment increases overall system efficiency by sustaining optimal exposure over time rather than 
-      relying on increased mirror count.
+      [cite_start]relying on increased mirror count[cite: 101].
     </p>
   </section>
 
@@ -241,20 +238,20 @@
     <h3>Concentrated Flux Interface</h3>
     <p>
       Converging sunlight from the mirror system is directed onto a central receiver plate, where optical energy is
-      absorbed and converted into thermal energy. This interface serves as the transition point between the optical
+      [cite_start]absorbed and converted into thermal energy[cite: 146]. This interface serves as the transition point between the optical
       system and downstream thermal utilization.
     </p>
 
     <h3>Material Considerations</h3>
     <p>
       Structural components were fabricated from PETG to simulate the use of plastics in a Martian
-      mission context, inspired by the potential reuse of plastic waste. For optical surfaces, aluminum foil was used 
-      to approximate thin reflective sheet materials commonly found on spacecraft.
+      [cite_start]mission context, inspired by the potential reuse of plastic waste[cite: 150]. For optical surfaces, aluminum foil was used 
+      [cite_start]to approximate thin reflective sheet materials commonly found on spacecraft[cite: 152].
     </p>
     
     <p>
       <strong>Loss Mechanisms:</strong> Energy losses arise from imperfect reflectivity and beam divergence. 
-      The aluminum foil (~80-90% reflectance) introduces greater scattering compared to glass-backed mirrors.
+      [cite_start]The aluminum foil (~80-90% reflectance) introduces greater scattering compared to glass-backed mirrors[cite: 155].
     </p>
   </section>
 
@@ -264,25 +261,25 @@
     <h3>Testing Setup</h3>
     <p>
       A 1:5 scale prototype was constructed to enable rapid fabrication. The system used four custom LDR sensor modules, 
-      two servo motors, and an Arduino Nano. Testing was performed indoors using a handheld flashlight as a 
-      controllable light source.
+      [cite_start]two servo motors, and an Arduino Nano[cite: 159]. Testing was performed indoors using a handheld flashlight as a 
+      [cite_start]controllable light source[cite: 160].
     </p>
 
     <h3>Key Observations</h3>
     <ul class="styled-list">
-      <li>The LDR-based control system consistently drove the mirrors toward balanced illumination.</li>
-      <li>Inconsistencies during fabrication produced noticeable changes in convergence location.</li>
-      <li>The system responded reliably even under non-collimated illumination from a flashlight.</li>
+      [cite_start]<li>The LDR-based control system consistently drove the mirrors toward balanced illumination[cite: 163].</li>
+      [cite_start]<li>Inconsistencies during fabrication produced noticeable changes in convergence location[cite: 164].</li>
+      [cite_start]<li>The system responded reliably even under non-collimated illumination from a flashlight[cite: 167].</li>
     </ul>
   </section>
 
   <section class="content-section">
     <h2 id="future">8. Future Scalability</h2>
     <ul class="styled-list">
-      <li><strong>Scientific Data:</strong> The tracking sensors can be used to log atmospheric dust and solar variability.</li>
-      <li><strong>Battery Buffering:</strong> Storing excess thermal energy for night-time release.</li>
-      <li><strong>Orbital Reflectors:</strong> Using orbital mirrors to redirect sunlight to surface concentrators during Martian night.</li>
-      <li><strong>System Scalability:</strong> At scale, such an arrangement would resemble a wind farm, where many identical modules contribute collectively.</li>
+      [cite_start]<li><strong>Scientific Data:</strong> The tracking sensors can be used to log atmospheric dust and solar variability[cite: 181].</li>
+      [cite_start]<li><strong>Battery Buffering:</strong> Storing excess thermal energy for night-time release[cite: 182].</li>
+      [cite_start]<li><strong>Orbital Reflectors:</strong> Using orbital mirrors to redirect sunlight to surface concentrators during Martian night[cite: 184].</li>
+      [cite_start]<li><strong>System Scalability:</strong> At scale, such an arrangement would resemble a wind farm, where many identical modules contribute collectively[cite: 187].</li>
     </ul>
   </section>
 
@@ -291,7 +288,7 @@
     <p>Watch the solar concentrator and tracking system in action.</p>
     
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/BrU9k6tFQZ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </section>
 
