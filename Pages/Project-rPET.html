@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rPET Filament System - NeoOrbit Dynamics</title>
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Nasalization&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html">Home</a>
+  <a href="#abstract">Abstract</a>
+  <a href="#overview">Overview</a>
+  <a href="#requirements">Motivation</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#mechanical">Design</a>
+  <a href="#iterations">Iterations</a>
+  <a href="#testing">Testing</a>
+  <a href="#future">Future</a>
+</nav>
+
+<header>
+  <div class="header-bg" style="background-image: url('../assets/rPET-Banner.png');"></div>
+  <div class="vignette-mask"></div>
+  <h1>Recycled PET Filament System</h1>
+  <p class="tagline">Maker Portfolio | Kelvin Zhang</p>
+</header>
+
+<main>
+
+  <section class="content-section">
+    <h2 id="abstract">Abstract</h2>
+    <p>
+      The growing use of consumer-grade fused deposition modeling (FDM) printers has increased demand for
+      thermoplastic filament, while post-consumer plastic waste—particularly polyethylene terephthalate (PET)
+      bottles—remains underutilized at small scales. Commercial recycling and filament production systems are
+      often centralized or cost-prohibitive, limiting access to local material reuse.
+    </p>
+    <p>
+      This project investigates a compact mechanical and thermal extrusion system designed to convert post-consumer 
+      PET bottles into usable 3D printing filament. The system was developed through multiple prototype iterations 
+      addressing challenges in thermal stability, filament diameter consistency, and mechanical alignment. 
+      Experimental validation evaluated filament continuity, dimensional consistency, and printability through test 
+      extrusions and comparative print trials.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2 id="overview">1. Executive Overview</h2>
+    
+    <h3>Problem Statement</h3>
+    <p>
+      The accessibility of consumer-grade 3D printing contrasts with a filament supply chain that remains
+      centralized, cost-sensitive, and poorly integrated with local waste streams. Post-consumer PET bottles are 
+      abundant, yet small-scale reuse is limited by the difficulty of converting irregular plastic feedstock into 
+      dimensionally consistent filament.
+    </p>
+
+    <h3>Inspiration</h3>
+    <p>
+      I often had ideas for hardware projects I wanted to prototype, but spending money without a clear outcome wasn't 
+      always an option. At the same time, my mother's restaurant was discarding large numbers of PET bottles while I 
+      was buying new filament. This project grew out of the desire to close that loop by turning waste material we 
+      already had into something directly useful for prototyping.
+    </p>
+
+    <h3>Proposed Solution</h3>
+    <p>
+      This project presents a compact recycling system that mechanically and thermally converts post-consumer PET 
+      bottles into usable 3D printing filament. The architecture integrates feedstock preparation, controlled extrusion, 
+      and filament drawing in a modular configuration that prioritizes accessibility and process transparency over full 
+      automation.
+    </p>
+    
+    <div class="highlight-box">
+      <strong>Key Benefit:</strong> By enabling direct adjustment of temperature and pull speed, the system supports 
+      iterative refinement and investigation of material behavior while remaining suitable for small-scale and educational use.
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2 id="requirements">2. Design Motivation & Constraints</h2>
+    
+    <div class="grid-container">
+      <div class="grid-item">
+        <h3>PET Processing Window</h3>
+        <p>
+          PET exhibits a narrow melt-processing range. Variability in post-consumer feedstock constrains allowable 
+          temperature margins, requiring stable heating and controlled residence time to prevent degradation or hydrolysis.
+        </p>
+      </div>
+      <div class="grid-item">
+        <h3>Fabrication Limits</h3>
+        <p>
+          The system was designed around manufacturing methods accessible in a small workshop, excluding precision-machined 
+          screws. Mechanical simplicity and tolerance to misalignment were prioritized over tight mechanical control.
+        </p>
+      </div>
+      <div class="grid-item">
+        <h3>Operational Safety</h3>
+        <p>
+          Continuous operation at elevated temperatures necessitated physical separation between heated components and 
+          user-adjustable elements to reduce accidental contact while maintaining visual access.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2 id="architecture">3. System Architecture</h2>
+    
+    <h3>Material Flow Path</h3>
+    <ul class="styled-list">
+      <li><strong>Feedstock Prep:</strong> Bottles are cleaned, labels removed, and thermally reformed under pressure to smooth molded grooves. They are then sectioned into continuous strips.</li>
+      <li><strong>Thermal Extrusion:</strong> Prepared strips are introduced into a heated assembly where controlled thermal input softens the material through a fixed-diameter nozzle.</li>
+      <li><strong>Drawing & Spooling:</strong> Extruded material is drawn into filament using a pulling mechanism. Pull speed is the primary control variable for filament diameter.</li>
+    </ul>
+
+    <figure class="project-figure">
+      <img src="../assets/rPET-architecture.png" alt="System Architecture: Prep, Extrusion, Drawing" style="width: 100%; max-width: 800px;">
+      <figcaption>Feedstock preparation, thermal extrusion, and filament drawing stages.</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-section">
+    <h2 id="mechanical">4. Mechanical & Thermal Design</h2>
+    
+    <h3>Extrusion Assembly</h3>
+    <p>
+      The extrusion assembly uses a modified Ender 3 hot end to leverage a well-characterized thermal system. 
+      The stock brass nozzle was drilled to 1.7 mm to reduce flow restriction. Temperature sensing was decoupled 
+      from the stock thermistor and replaced with a K-type thermocouple bonded with thermal epoxy for higher robustness.
+    </p>
+
+    <h3>Material Selection</h3>
+    <p>
+      The mounting bracket was fabricated from PETG to improve thermal tolerance relative to PLA. 
+      The heat block was mechanically offset from the PETG structure using M2.5 spacers to limit heat transfer 
+      to load-bearing components.
+    </p>
+
+    <figure class="project-figure">
+      <img src="../assets/rPET-hotend.png" alt="Custom Hot End Assembly" style="width: 100%; max-width: 600px;">
+      <figcaption>Modified hot end assembly with custom thermocouple mounting.</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-section">
+    <h2 id="iterations">5. Iterative Development</h2>
+    
+    <h3>Iteration 1 (Current)</h3>
+    <p>
+      Focused on proof of concept. Filament diameter exhibited strong sensitivity to pull speed, and the absence of 
+      active cooling limited stability. Variations in bottle thickness caused inconsistent melt flow.
+    </p>
+
+    <h3>Iteration 2 (In Development)</h3>
+    <p>
+      Replaces the commercial hot end with a custom CNC-machined assembly and modular nozzles. 
+      Adds active cooling for both the hot end and extruded filament. Transitions control to a custom ESP32-based PCB.
+    </p>
+
+    <div class="iteration-grid">
+      <div class="iteration-card">
+        <img src="../assets/rPET-pcb-1.png" alt="Custom PCB Design" class="iteration-img">
+        <div class="iteration-label">Custom PCB Layout</div>
+      </div>
+      <div class="iteration-card">
+        <img src="../assets/rPET-puller.png" alt="Gear Reduced Puller" class="iteration-img">
+        <div class="iteration-label">Gear-Reduced Puller</div>
+      </div>
+      <div class="iteration-card">
+        <img src="../assets/rPET-modular.png" alt="Modular Nozzle Design" class="iteration-img">
+        <div class="iteration-label">Modular Nozzle Block</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2 id="testing">6. Experimental Testing</h2>
+    
+    <h3>Comparative Analysis</h3>
+    <p>
+      Recycled filament was evaluated against commercial PETG using identical print settings (with reduced temperature for rPET). 
+      Validation prints included vase-mode structures and stringing tests.
+    </p>
+
+    <h3>Key Observations</h3>
+    <ul class="styled-list">
+      <li><strong>Continuous Extrusion:</strong> The vase-mode print completed successfully with surface quality comparable to PETG.</li>
+      <li><strong>Stringing:</strong> The recycled filament showed higher sensitivity to stringing, emphasizing the need for consistent cooling.</li>
+      <li><strong>Functional Use:</strong> Despite dimensional variability, the filament demonstrated sufficient continuity for functional parts.</li>
+    </ul>
+
+    <figure class="project-figure">
+      <img src="../assets/rPET-prints.png" alt="Comparison: Commercial PETG vs Recycled PET" style="width: 100%; max-width: 700px;">
+      <figcaption>Left: Commercial PETG. Right: Recycled PET Filament (This Project).</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-section">
+    <h2 id="future">7. Scalability & Future Work</h2>
+    <ul class="styled-list">
+      <li><strong>Closed-Loop Control:</strong> Implementing the ESP32 system to actively monitor diameter and adjust pull speed.</li>
+      <li><strong>Educational Deployment:</strong> The system is planned for deployment in five public schools to gather user feedback.</li>
+      <li><strong>Hybrid Feeding:</strong> Developing a filament joiner to allow continuous printing by splicing rPET with standard filament.</li>
+    </ul>
+  </section>
+
+</main>
+
+<div class="footer">
+  &copy; 2025 NeoOrbit Dynamics — Engineering Energy for Mars and Earth
+</div>
+
+</body>
+</html>
