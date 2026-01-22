@@ -3,10 +3,8 @@
    ───────────────────────────────────────────────────────────── */
 @font-face {
   font-family: 'Nasalization';
-  /* IMPORTANT: Make sure the file in your 'assets' folder 
-     matches this filename exactly (case-sensitive)!
-     If you have a .ttf file, change .otf to .ttf below.
-  */
+  /* Ensure 'Nasalization.otf' is in your assets folder. 
+     If it is .ttf, change this to .ttf */
   src: url('assets/Nasalization.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
@@ -15,13 +13,11 @@
 /* ─────────────────────────────────────────────────────────────
    2. CUSTOM SCROLLBAR (Floating Pill)
    ───────────────────────────────────────────────────────────── */
-/* Firefox */
 html {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
 }
 
-/* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -79,6 +75,11 @@ a:hover {
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
+/* Add a dark grey background to images while they load (Lazy Loading Fix) */
+.header-bg, .project-image, .project-figure img, .iteration-img {
+  background-color: #222222; 
+}
+
 /* ─────────────────────────────────────────────────────────────
    4. NAVIGATION (Fixed & Transparent)
    ───────────────────────────────────────────────────────────── */
@@ -133,7 +134,10 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('assets/Earth-Mars.png'); 
+  
+  /* UPDATED TO .WEBP */
+  background-image: url('assets/Earth-Mars.webp'); 
+  
   background-size: cover;
   background-position: center;
   z-index: 1; 
@@ -169,9 +173,7 @@ header img {
 
 /* --- TYPOGRAPHY --- */
 header h1 {
-  /* CHANGED: Using the self-hosted Nasalization font */
   font-family: 'Nasalization', sans-serif;
-  
   font-size: 3.5rem;
   font-weight: normal; 
   text-transform: uppercase;
@@ -237,20 +239,22 @@ section {
   pointer-events: none;
 }
 
-/* Specific Project Images */
+/* Specific Project Images - UPDATED TO .WEBP */
 .project-image-heatpump {
-  background-image: url('assets/3DHeatPump.png');
+  /* Make sure you have '3DHeatPump.webp' in your assets folder */
+  background-image: url('assets/3DHeatPump.webp'); 
 }
 
 .project-image-rpet {
-  background-image: url('assets/rPET-Banner.png');
+  /* Make sure you have 'rPET-Banner.webp' in your assets folder */
+  background-image: url('assets/rPET-Banner.webp'); 
 }
 
 .project-image-placeholder {
-  background-image: url('assets/PlaceHolder.png');
+  background-image: url('assets/PlaceHolder.webp');
 }
 
-/* FIXED ALIGNMENT: Block display + tight padding fixes the top gap */
+/* FIXED ALIGNMENT */
 .project-content {
   flex: 1;
   position: relative;
@@ -492,30 +496,25 @@ section {
    ───────────────────────────────────────────────────────────── */
 @media screen and (max-width: 768px) {
   
-  /* Make Nav Scrollable instead of stacking */
   nav {
-    flex-wrap: nowrap;         /* Force single line */
-    overflow-x: auto;          /* Allow horizontal scroll */
-    justify-content: flex-start; /* Align to start */
-    padding: 0.5rem 0;         /* Reduce vertical padding */
-    
-    /* Smooth scrolling on iOS */
+    flex-wrap: nowrap;         
+    overflow-x: auto;          
+    justify-content: flex-start; 
+    padding: 0.5rem 0;         
     -webkit-overflow-scrolling: touch; 
-    
-    /* Hide scrollbar for cleaner look */
-    scrollbar-width: none;  /* Firefox */
-    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;  
+    -ms-overflow-style: none;  
   }
   
   nav::-webkit-scrollbar { 
-    display: none; /* Chrome/Safari */
+    display: none; 
   }
 
   nav a {
-    flex: 0 0 auto;           /* Prevent links from squishing */
-    margin: 0 0.75rem;        /* Smaller side margins */
-    font-size: 0.85rem;       /* Slightly smaller text */
-    white-space: nowrap;      /* Keep words together */
+    flex: 0 0 auto;           
+    margin: 0 0.75rem;        
+    font-size: 0.85rem;       
+    white-space: nowrap;      
   }
   
   nav a:first-child {
@@ -526,7 +525,6 @@ section {
     margin-right: 1rem;
   }
 
-  /* Reduce Header Height on Mobile */
   header {
     height: 50vh; 
   }
