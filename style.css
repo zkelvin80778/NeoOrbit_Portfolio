@@ -1,4 +1,9 @@
 /* ─────────────────────────────────────────────────────────────
+   IMPORT FONTS (Zen Dots for Headers)
+   ───────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+/* ─────────────────────────────────────────────────────────────
    0. CUSTOM SCROLLBAR (Floating Pill)
    ───────────────────────────────────────────────────────────── */
 /* Firefox */
@@ -155,9 +160,11 @@ header img {
 
 /* --- TYPOGRAPHY --- */
 header h1 {
-  font-family: 'Nasalization', sans-serif;
+  /* CHANGED: Using Zen Dots for that specific 80s/NASA look */
+  font-family: 'Zen Dots', cursive;
+  
   font-size: 3.5rem;
-  font-weight: normal; 
+  font-weight: 400; /* Zen Dots is naturally bold */
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0; 
@@ -193,7 +200,10 @@ section {
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 24px;
+  
+  /* Smoother 0.6s animation */
   transition: transform 0.6s ease, box-shadow 0.6s ease;
+  
   border: 1px solid #222;
   position: relative; 
 }
@@ -234,13 +244,12 @@ section {
   background-image: url('assets/PlaceHolder.png');
 }
 
+/* FIXED ALIGNMENT: Block display + tight padding fixes the top gap */
 .project-content {
   flex: 1;
   position: relative;
   z-index: 2;
   margin-left: -40px; 
-  
-  /* UPDATED: Block display + tight padding fixes the top gap */
   padding: 1rem 1.5rem 1.5rem 1.5rem; 
   display: block; 
 }
@@ -473,7 +482,7 @@ section {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   7. MOBILE OPTIMIZATION (NEW)
+   7. MOBILE OPTIMIZATION
    ───────────────────────────────────────────────────────────── */
 @media screen and (max-width: 768px) {
   
