@@ -231,7 +231,6 @@ section {
   background-image: url('assets/3DHeatPump.png');
 }
 
-/* NEW: Image for the rPET Project Card */
 .project-image-rpet {
   background-image: url('assets/rPET-Banner.png');
 }
@@ -248,7 +247,9 @@ section {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  
+  /* UPDATED: Aligns content to the top to remove the gap */
+  justify-content: flex-start; 
 }
 
 .project-content h3 {
