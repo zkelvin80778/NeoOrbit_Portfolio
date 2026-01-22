@@ -8,7 +8,6 @@
 
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Nasalization&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -20,13 +19,15 @@
   <a href="#architecture">Architecture</a>
   <a href="#mechanical">Design</a>
   <a href="#iterations">Iterations</a>
-  <a href="#stability">Stability</a> <a href="#testing">Testing</a>
-  <a href="#tradeoffs">Tradeoffs</a> <a href="#future">Future</a>
+  <a href="#stability">Stability</a>
+  <a href="#testing">Testing</a>
+  <a href="#tradeoffs">Tradeoffs</a>
+  <a href="#future">Future</a>
   <a href="#video">Video</a>
 </nav>
 
 <header>
-  <div class="header-bg" style="background-image: url('../assets/rPET-Banner.png');"></div>
+  <div class="header-bg" style="background-image: url('../assets/rPET-Banner.webp');"></div>
   <div class="vignette-mask"></div>
   <h1>rPET Machine V0</h1>
   <p class="tagline">Maker Portfolio | Kelvin Zhang</p>
@@ -95,7 +96,8 @@
         </p>
       </div>
       <div class="grid-item">
-        <h3>Performance Targets</h3> <p>
+        <h3>Performance Targets</h3>
+        <p>
           The system was designed to meet specific output criteria to ensure utility:
           <br>• <strong>Target Diameter:</strong> 1.75 mm
           <br>• <strong>Acceptable Tolerance:</strong> ±0.10 mm (steady-state)
@@ -122,14 +124,15 @@
       <li><strong>Drawing & Spooling:</strong> Extruded material is drawn into filament using a pulling mechanism. Pull speed is the primary control variable for filament diameter.</li>
     </ul>
 
-    <h3>Control & Monitoring Philosophy</h3> <p>
+    <h3>Control & Monitoring Philosophy</h3>
+    <p>
       Active control is applied only where stability is critical to process viability, specifically extrusion temperature. 
       Other variables, including pull speed and cooling rate, are intentionally left under direct user control or passively 
       tolerated. This reduces system complexity while enabling direct observation and iterative refinement of material behavior.
     </p>
 
     <figure class="project-figure">
-      <img src="../assets/rPET-architecture.png" alt="System Architecture: Prep, Extrusion, Drawing" style="width: 100%; max-width: 800px;">
+      <img src="../assets/rPET-architecture.webp" alt="System Architecture: Prep, Extrusion, Drawing" style="width: 100%; max-width: 800px;" loading="lazy">
       <figcaption>Feedstock preparation, thermal extrusion, and filament drawing stages.</figcaption>
     </figure>
   </section>
@@ -152,7 +155,7 @@
     </p>
 
     <figure class="project-figure">
-      <img src="../assets/rPET-hotend.png" alt="Custom Hot End Assembly" style="width: 100%; max-width: 600px;">
+      <img src="../assets/rPET-hotend.webp" alt="Custom Hot End Assembly" style="width: 100%; max-width: 600px;" loading="lazy">
       <figcaption>Modified hot end assembly with custom thermocouple mounting.</figcaption>
     </figure>
   </section>
@@ -174,15 +177,15 @@
 
     <div class="iteration-grid">
       <div class="iteration-card">
-        <img src="../assets/rPET-pcb-1.png" alt="Custom PCB Design" class="iteration-img">
+        <img src="../assets/rPET-pcb-1.webp" alt="Custom PCB Design" class="iteration-img" loading="lazy">
         <div class="iteration-label">Custom PCB Layout</div>
       </div>
       <div class="iteration-card">
-        <img src="../assets/rPET-puller.png" alt="Gear Reduced Puller" class="iteration-img">
+        <img src="../assets/rPET-puller.webp" alt="Gear Reduced Puller" class="iteration-img" loading="lazy">
         <div class="iteration-label">Gear-Reduced Puller</div>
       </div>
       <div class="iteration-card">
-        <img src="../assets/rPET-modular.png" alt="Modular Nozzle Design" class="iteration-img">
+        <img src="../assets/rPET-modular.webp" alt="Modular Nozzle Design" class="iteration-img" loading="lazy">
         <div class="iteration-label">Modular Nozzle Block</div>
       </div>
     </div>
@@ -223,11 +226,12 @@
     </ul>
 
     <figure class="project-figure">
-      <img src="../assets/rPET-prints.png" alt="Comparison: Commercial PETG vs Recycled PET" style="width: 100%; max-width: 700px;">
+      <img src="../assets/rPET-prints.webp" alt="Comparison: Commercial PETG vs Recycled PET" style="width: 100%; max-width: 700px;" loading="lazy">
       <figcaption>Left: Commercial PETG. Right: Recycled PET Filament (This Project).</figcaption>
     </figure>
 
-    <h3>Practical Applications</h3> <p>
+    <h3>Practical Applications</h3>
+    <p>
       Beyond test prints, the recycled PET filament was used to fabricate practical parts that addressed real needs within 
       my ongoing projects. These components provided immediate utility, requiring sufficient strength and dimensional reliability.
     </p>
@@ -272,4 +276,3 @@
 
 </body>
 </html>
-
