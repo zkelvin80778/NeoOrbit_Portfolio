@@ -198,7 +198,10 @@ section {
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 24px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* CHANGED: Increased from 0.3s to 0.6s for smoother animation */
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  
   border: 1px solid #222;
   position: relative; 
 }
@@ -247,8 +250,6 @@ section {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  
-  /* UPDATED: Aligns content to the top to remove the gap */
   justify-content: flex-start; 
 }
 
