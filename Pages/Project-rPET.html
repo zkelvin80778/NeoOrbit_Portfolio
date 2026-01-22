@@ -20,17 +20,15 @@
   <a href="#architecture">Architecture</a>
   <a href="#mechanical">Design</a>
   <a href="#iterations">Iterations</a>
-  <a href="#testing">Testing</a>
-  <a href="#future">Future</a>
+  <a href="#stability">Stability</a> <a href="#testing">Testing</a>
+  <a href="#tradeoffs">Tradeoffs</a> <a href="#future">Future</a>
   <a href="#video">Video</a>
 </nav>
 
 <header>
   <div class="header-bg" style="background-image: url('../assets/rPET-Banner.png');"></div>
   <div class="vignette-mask"></div>
-  
   <h1>rPET Machine V0</h1>
-  
   <p class="tagline">Maker Portfolio | Kelvin Zhang</p>
 </header>
 
@@ -76,8 +74,7 @@
     <p>
       This project presents a compact recycling system that mechanically and thermally converts post-consumer PET 
       bottles into usable 3D printing filament. The architecture integrates feedstock preparation, controlled extrusion, 
-      and filament drawing in a modular configuration that prioritizes accessibility and process transparency over full 
-      automation.
+      and filament drawing in a modular configuration.
     </p>
     
     <div class="highlight-box">
@@ -98,10 +95,11 @@
         </p>
       </div>
       <div class="grid-item">
-        <h3>Fabrication Limits</h3>
-        <p>
-          The system was designed around manufacturing methods accessible in a small workshop, excluding precision-machined 
-          screws. Mechanical simplicity and tolerance to misalignment were prioritized over tight mechanical control.
+        <h3>Performance Targets</h3> <p>
+          The system was designed to meet specific output criteria to ensure utility:
+          <br>• <strong>Target Diameter:</strong> 1.75 mm
+          <br>• <strong>Acceptable Tolerance:</strong> ±0.10 mm (steady-state)
+          <br>• <strong>Throughput:</strong> Sufficient for continuous printing of small functional parts.
         </p>
       </div>
       <div class="grid-item">
@@ -123,6 +121,12 @@
       <li><strong>Thermal Extrusion:</strong> Prepared strips are introduced into a heated assembly where controlled thermal input softens the material through a fixed-diameter nozzle.</li>
       <li><strong>Drawing & Spooling:</strong> Extruded material is drawn into filament using a pulling mechanism. Pull speed is the primary control variable for filament diameter.</li>
     </ul>
+
+    <h3>Control & Monitoring Philosophy</h3> <p>
+      Active control is applied only where stability is critical to process viability, specifically extrusion temperature. 
+      Other variables, including pull speed and cooling rate, are intentionally left under direct user control or passively 
+      tolerated. This reduces system complexity while enabling direct observation and iterative refinement of material behavior.
+    </p>
 
     <figure class="project-figure">
       <img src="../assets/rPET-architecture.png" alt="System Architecture: Prep, Extrusion, Drawing" style="width: 100%; max-width: 800px;">
@@ -185,7 +189,25 @@
   </section>
 
   <section class="content-section">
-    <h2 id="testing">6. Experimental Testing</h2>
+    <h2 id="stability">6. Process Stability & Quality Control</h2>
+    
+    <h3>Diameter Consistency Challenges</h3>
+    <p>
+      Recycled PET filament exhibits inherent dimensional instability due to post-extrusion shrinkage during cooling. 
+      This effect was amplified by inconsistent thermal input from a generic thermostat, resulting in frequent 
+      temperature overshoot (~10°C). The absence of active cooling further increased thermal lag.
+    </p>
+
+    <h3>Mitigation Strategies</h3>
+    <ul class="styled-list">
+      <li><strong>Mechanical:</strong> A dedicated, gear-reduced pulling system is under development to provide a constant filament draw rate independent of operator input.</li>
+      <li><strong>Thermal:</strong> Replacement of the thermostat with closed-loop control via a custom ESP32-based system and addition of active cooling.</li>
+      <li><strong>Procedural:</strong> Standardization of feedstock preparation and operating sequences (warmup, shutdown) to reduce transient-induced variation.</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2 id="testing">7. Experimental Testing</h2>
     
     <h3>Comparative Analysis</h3>
     <p>
@@ -197,17 +219,35 @@
     <ul class="styled-list">
       <li><strong>Continuous Extrusion:</strong> The vase-mode print completed successfully with surface quality comparable to PETG.</li>
       <li><strong>Stringing:</strong> The recycled filament showed higher sensitivity to stringing, emphasizing the need for consistent cooling.</li>
-      <li><strong>Functional Use:</strong> Despite dimensional variability, the filament demonstrated sufficient continuity for functional parts.</li>
+      <li><strong>Unexpected Behaviors:</strong> Despite its recycled origin, the rPET filament demonstrated sufficient continuity for functional printing even without closed-loop diameter control.</li>
     </ul>
 
     <figure class="project-figure">
       <img src="../assets/rPET-prints.png" alt="Comparison: Commercial PETG vs Recycled PET" style="width: 100%; max-width: 700px;">
       <figcaption>Left: Commercial PETG. Right: Recycled PET Filament (This Project).</figcaption>
     </figure>
+
+    <h3>Practical Applications</h3> <p>
+      Beyond test prints, the recycled PET filament was used to fabricate practical parts that addressed real needs within 
+      my ongoing projects. These components provided immediate utility, requiring sufficient strength and dimensional reliability.
+    </p>
   </section>
 
   <section class="content-section">
-    <h2 id="future">7. Scalability & Future Work</h2>
+    <h2 id="tradeoffs">8. Limitations & Engineering Tradeoffs</h2>
+    <p>
+      The current system prioritizes accessibility and modularity over full automation, resulting in unavoidable variability 
+      in filament diameter during manual pull extrusion. While this approach enables rapid iteration, it limits repeatability 
+      relative to industrial systems.
+    </p>
+    <p>
+      Material variability inherent to post-consumer PET (wall thickness, prior thermal history) introduces additional 
+      uncertainty in melt behavior that cannot be fully mitigated through mechanical design alone.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2 id="future">9. Scalability & Future Work</h2>
     <ul class="styled-list">
       <li><strong>Closed-Loop Control:</strong> Implementing the ESP32 system to actively monitor diameter and adjust pull speed.</li>
       <li><strong>Educational Deployment:</strong> The system is planned for deployment in five public schools to gather user feedback.</li>
@@ -216,7 +256,7 @@
   </section>
 
   <section class="content-section">
-    <h2 id="video">8. Project Video Presentation</h2>
+    <h2 id="video">10. Project Video Presentation</h2>
     <p>Watch the rPET Machine V0 in action.</p>
     
     <div class="video-container">
