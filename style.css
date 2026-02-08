@@ -134,10 +134,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  
-  /* UPDATED TO .WEBP */
   background-image: url('assets/Earth-Mars.webp'); 
-  
   background-size: cover;
   background-position: center;
   z-index: 1; 
@@ -239,15 +236,13 @@ section {
   pointer-events: none;
 }
 
-/* Specific Project Images - UPDATED TO .WEBP */
+/* Specific Project Images */
 .project-image-heatpump {
-  /* Make sure you have '3DHeatPump.webp' in your assets folder */
-  background-image: url('assets/3DHeatPump.webp'); 
+  background-image: url('assets/3DHeatPump.webp');
 }
 
 .project-image-rpet {
-  /* Make sure you have 'rPET-Banner.webp' in your assets folder */
-  background-image: url('assets/rPET-Banner.webp'); 
+  background-image: url('assets/rPET-Banner.webp');
 }
 
 .project-image-placeholder {
@@ -479,7 +474,59 @@ section {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   8. FOOTER
+   8. DOWNLOAD CARD (New)
+   ───────────────────────────────────────────────────────────── */
+.download-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--card-bg);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  text-decoration: none; /* Removes underline */
+  cursor: pointer;
+}
+
+.download-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+  background-color: #1a1a1a;
+  box-shadow: 0 6px 16px rgba(255,255,255,0.05);
+}
+
+.download-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.download-card p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.download-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  fill: var(--text-main);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.download-card:hover .download-icon {
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   9. FOOTER
    ───────────────────────────────────────────────────────────── */
 .footer {
   text-align: center;
@@ -492,7 +539,7 @@ section {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   9. MOBILE OPTIMIZATION
+   10. MOBILE OPTIMIZATION
    ───────────────────────────────────────────────────────────── */
 @media screen and (max-width: 768px) {
   
