@@ -16,7 +16,7 @@ for (const file of pages) {
     const url = match[1];
     if (/^(https?:|mailto:)/.test(url)) continue;
     const [target, fragment] = url.split('#');
-    const resolved = path.resolve(root, path.dirname(file), decodeURIComponent(target || path.basename(file)));
+    const resolved = path.resolve(root, path.dirname(file), decodeURIComponent(target.split('?')[0] || path.basename(file)));
     assert(fs.existsSync(resolved), `${file}: missing resource ${url}`);
     // Linux hosting is case sensitive even when local Windows paths are not.
     assert(fs.readdirSync(path.dirname(resolved)).includes(path.basename(resolved)), `${file}: wrong path case ${url}`);
