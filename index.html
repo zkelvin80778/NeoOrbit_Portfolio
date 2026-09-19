@@ -3,37 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeoOrbit Dynamics</title>
-  
+  <title>NeoOrbit</title>
+
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/webp" href="assets/NeoOrbit_Logo.webp">
+
+  <meta name="description" content="NeoOrbit is a student-led innovation lab engineering sustainable technologies for Earth and beyond.">
+  <link rel="canonical" href="https://neoorbit.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NeoOrbit">
+  <meta property="og:title" content="NeoOrbit">
+  <meta property="og:description" content="NeoOrbit is a student-led innovation lab engineering sustainable technologies for Earth and beyond.">
+  <meta property="og:url" content="https://neoorbit.org/">
+  <meta property="og:image" content="https://neoorbit.org/assets/NeoOrbit_Logo.webp">
+  <script src="site.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-<nav>
+<nav aria-label="Main navigation">
   <a href="#mission">Mission</a>
   <a href="#projects">Projects</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <header>
-  <div class="header-bg"></div>
-  <div class="vignette-mask"></div>
-  
-  <img src="assets/NeoOrbit_Logo.webp" alt="NeoOrbit Logo" class="logo" />
-  
-  <h1>NeoOrbit Dynamics</h1>
-  
+  <div class="header-bg" aria-hidden="true"></div>
+  <div class="vignette-mask" aria-hidden="true"></div>
+
+  <img src="assets/NeoOrbit_Logo.webp" alt="NeoOrbit Logo" class="logo" width="500" height="500" decoding="async">
+
+  <h1>NeoOrbit</h1>
+
   <p class="tagline">Engineering tomorrow's sustainability, today.</p>
 </header>
 
+<main id="main-content" tabindex="-1">
 <section id="mission" class="content-section">
   <h2>Our Mission</h2>
   <p>
-    NeoOrbit Dynamics is a student-led innovation lab that engineers sustainable technologies for both terrestrial and extraterrestrial applications.
+    NeoOrbit is a student-led innovation lab that engineers sustainable technologies for both terrestrial and extraterrestrial applications.
     We design resilient energy systems built for the future of the Earth—and beyond.
   </p>
 </section>
@@ -45,7 +54,7 @@
     <div class="project-card">
       <div class="project-image project-image-heatpump"></div>
       <div class="project-content">
-        <h3>3D-Printed Solar Concentrator</h3> 
+        <h3>3D-Printed Solar Concentrator</h3>
         <div class="project-description">
           This project tackles the unique challenge of habitat temperature regulation for future Martian missions. Utilizing thermoelectric generators, 3D-printed components, and open-source control systems, it aims to provide practical solutions for off-world sustainability.
         </div>
@@ -60,7 +69,7 @@
     <div class="project-card">
       <div class="project-image project-image-rpet"></div>
       <div class="project-content">
-        <h3>rPET Machine V0</h3> 
+        <h3>rPET Machine V0</h3>
         <div class="project-description">
           A compact, open-source system designed to convert post-consumer plastic bottles into usable 3D printing filament. It features modular thermal extrusion, custom electronics, and a focus on educational accessibility to close the loop on local plastic waste.
         </div>
@@ -76,24 +85,26 @@
 <section id="contact" class="content-section">
   <h2>Contact</h2>
   <p>Email: <a href="mailto:contact@neoorbit.me">contact@neoorbit.me</a></p>
-  <p>Instagram / YouTube: <a href="https://instagram.com/neoorbitdynamics" target="_blank">@NeoOrbitDynamics</a></p>
+  <p>Instagram / YouTube: <a href="https://instagram.com/neoorbitdynamics" target="_blank" rel="noopener noreferrer">@NeoOrbitDynamics</a></p>
 </section>
 
 <section id="social" class="content-section">
   <h2>Follow Us</h2>
   <div class="social-icons">
     <p>
-      <a href="https://www.youtube.com/@neoorbitdynamics" target="_blank">YouTube</a> | 
-      <a href="https://www.instagram.com/neoorbitdynamics/" target="_blank">Instagram</a> | 
-      <a href="https://facebook.com/neoorbitdynamics" target="_blank">X</a> | 
-      <a href="https://linkedin.com/company/neoorbitdynamics" target="_blank">LinkedIn</a>
+      <a href="https://www.youtube.com/@neoorbitdynamics" target="_blank" rel="noopener noreferrer">YouTube</a> |
+      <a href="https://www.instagram.com/neoorbitdynamics/" target="_blank" rel="noopener noreferrer">Instagram</a> |
+      <a href="https://facebook.com/neoorbitdynamics" target="_blank" rel="noopener noreferrer">Facebook</a> |
+      <a href="https://linkedin.com/company/neoorbitdynamics" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </p>
   </div>
 </section>
 
-<div class="footer">
-  &copy; 2025 NeoOrbit Dynamics — Engineering Energy for Mars and Earth
-</div>
+</main>
+
+<footer class="footer">
+  &copy; 2025 NeoOrbit — Engineering Energy for Mars and Earth
+</footer>
 
 </body>
 </html>

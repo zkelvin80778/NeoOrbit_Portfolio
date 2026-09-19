@@ -3,15 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>rPET Machine V0 - NeoOrbit Dynamics</title>
+
+  <title>rPET Machine V0 - NeoOrbit</title>
 
   <link rel="stylesheet" href="../style.css">
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/webp" href="../assets/NeoOrbit_Logo.webp">
+  <meta name="description" content="Explore the NeoOrbit rPET Machine V0: a modular system that converts post-consumer plastic bottles into 3D printing filament.">
+  <link rel="canonical" href="https://neoorbit.org/Pages/Project-rPET.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NeoOrbit">
+  <meta property="og:title" content="rPET Machine V0 - NeoOrbit">
+  <meta property="og:description" content="Explore the NeoOrbit rPET Machine V0: a modular system that converts post-consumer plastic bottles into 3D printing filament.">
+  <meta property="og:url" content="https://neoorbit.org/Pages/Project-rPET.html">
+  <meta property="og:image" content="https://neoorbit.org/assets/NeoOrbit_Logo.webp">
+  <script src="../site.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-<nav>
+<nav aria-label="Project sections">
   <a href="../index.html">Home</a>
   <a href="#abstract">Abstract</a>
   <a href="#overview">Overview</a>
@@ -24,16 +34,17 @@
   <a href="#tradeoffs">Tradeoffs</a>
   <a href="#future">Future</a>
   <a href="#video">Video</a>
-  <a href="#downloads">Docs</a> </nav>
+  <a href="#downloads">Docs</a>
+</nav>
 
 <header>
-  <div class="header-bg" style="background-image: url('../assets/rPET-Banner.webp');"></div>
-  <div class="vignette-mask"></div>
+  <div class="header-bg header-bg--rpet" aria-hidden="true"></div>
+  <div class="vignette-mask" aria-hidden="true"></div>
   <h1>rPET Machine V0</h1>
   <p class="tagline">Maker Portfolio | Kelvin Zhang</p>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
 
   <section class="content-section">
     <h2 id="abstract">Abstract</h2>
@@ -44,54 +55,54 @@
       often centralized or cost-prohibitive, limiting access to local material reuse.
     </p>
     <p>
-      This project investigates a compact mechanical and thermal extrusion system designed to convert post-consumer 
-      PET bottles into usable 3D printing filament. The system was developed through multiple prototype iterations 
-      addressing challenges in thermal stability, filament diameter consistency, and mechanical alignment. 
-      Experimental validation evaluated filament continuity, dimensional consistency, and printability through test 
+      This project investigates a compact mechanical and thermal extrusion system designed to convert post-consumer
+      PET bottles into usable 3D printing filament. The system was developed through multiple prototype iterations
+      addressing challenges in thermal stability, filament diameter consistency, and mechanical alignment.
+      Experimental validation evaluated filament continuity, dimensional consistency, and printability through test
       extrusions and comparative print trials.
     </p>
   </section>
 
   <section class="content-section">
     <h2 id="overview">1. Executive Overview</h2>
-    
+
     <h3>Problem Statement</h3>
     <p>
       The accessibility of consumer-grade 3D printing contrasts with a filament supply chain that remains
-      centralized, cost-sensitive, and poorly integrated with local waste streams. Post-consumer PET bottles are 
-      abundant, yet small-scale reuse is limited by the difficulty of converting irregular plastic feedstock into 
+      centralized, cost-sensitive, and poorly integrated with local waste streams. Post-consumer PET bottles are
+      abundant, yet small-scale reuse is limited by the difficulty of converting irregular plastic feedstock into
       dimensionally consistent filament.
     </p>
 
     <h3>Inspiration</h3>
     <p>
-      I often had ideas for hardware projects I wanted to prototype, but spending money without a clear outcome wasn't 
-      always an option. At the same time, my mother's restaurant was discarding large numbers of PET bottles while I 
-      was buying new filament. This project grew out of the desire to close that loop by turning waste material we 
+      I often had ideas for hardware projects I wanted to prototype, but spending money without a clear outcome wasn't
+      always an option. At the same time, my mother's restaurant was discarding large numbers of PET bottles while I
+      was buying new filament. This project grew out of the desire to close that loop by turning waste material we
       already had into something directly useful for prototyping.
     </p>
 
     <h3>Proposed Solution</h3>
     <p>
-      This project presents a compact recycling system that mechanically and thermally converts post-consumer PET 
-      bottles into usable 3D printing filament. The architecture integrates feedstock preparation, controlled extrusion, 
+      This project presents a compact recycling system that mechanically and thermally converts post-consumer PET
+      bottles into usable 3D printing filament. The architecture integrates feedstock preparation, controlled extrusion,
       and filament drawing in a modular configuration.
     </p>
-    
+
     <div class="highlight-box">
-      <strong>Key Benefit:</strong> By enabling direct adjustment of temperature and pull speed, the system supports 
+      <strong>Key Benefit:</strong> By enabling direct adjustment of temperature and pull speed, the system supports
       iterative refinement and investigation of material behavior while remaining suitable for small-scale and educational use.
     </div>
   </section>
 
   <section class="content-section">
     <h2 id="requirements">2. Design Motivation & Constraints</h2>
-    
+
     <div class="grid-container">
       <div class="grid-item">
         <h3>PET Processing Window</h3>
         <p>
-          PET exhibits a narrow melt-processing range. Variability in post-consumer feedstock constrains allowable 
+          PET exhibits a narrow melt-processing range. Variability in post-consumer feedstock constrains allowable
           temperature margins, requiring stable heating and controlled residence time to prevent degradation or hydrolysis.
         </p>
       </div>
@@ -107,7 +118,7 @@
       <div class="grid-item">
         <h3>Operational Safety</h3>
         <p>
-          Continuous operation at elevated temperatures necessitated physical separation between heated components and 
+          Continuous operation at elevated temperatures necessitated physical separation between heated components and
           user-adjustable elements to reduce accidental contact while maintaining visual access.
         </p>
       </div>
@@ -116,7 +127,7 @@
 
   <section class="content-section">
     <h2 id="architecture">3. System Architecture</h2>
-    
+
     <h3>Material Flow Path</h3>
     <ul class="styled-list">
       <li><strong>Feedstock Prep:</strong> Bottles are cleaned, labels removed, and thermally reformed under pressure to smooth molded grooves. They are then sectioned into continuous strips.</li>
@@ -126,66 +137,66 @@
 
     <h3>Control & Monitoring Philosophy</h3>
     <p>
-      Active control is applied only where stability is critical to process viability, specifically extrusion temperature. 
-      Other variables, including pull speed and cooling rate, are intentionally left under direct user control or passively 
+      Active control is applied only where stability is critical to process viability, specifically extrusion temperature.
+      Other variables, including pull speed and cooling rate, are intentionally left under direct user control or passively
       tolerated. This reduces system complexity while enabling direct observation and iterative refinement of material behavior.
     </p>
 
     <figure class="project-figure">
-      <img src="../assets/rPET-architecture.webp" alt="System Architecture: Prep, Extrusion, Drawing" style="width: 100%; max-width: 800px;" loading="lazy">
+      <img src="../assets/rPET-architecture.webp" alt="System Architecture: Prep, Extrusion, Drawing" class="figure-width-800" loading="lazy" width="1200" height="600" decoding="async">
       <figcaption>Feedstock preparation, thermal extrusion, and filament drawing stages.</figcaption>
     </figure>
   </section>
 
   <section class="content-section">
     <h2 id="mechanical">4. Mechanical & Thermal Design</h2>
-    
+
     <h3>Extrusion Assembly</h3>
     <p>
-      The extrusion assembly uses a modified Ender 3 hot end to leverage a well-characterized thermal system. 
-      The stock brass nozzle was drilled to 1.7 mm to reduce flow restriction. Temperature sensing was decoupled 
+      The extrusion assembly uses a modified Ender 3 hot end to leverage a well-characterized thermal system.
+      The stock brass nozzle was drilled to 1.7 mm to reduce flow restriction. Temperature sensing was decoupled
       from the stock thermistor and replaced with a K-type thermocouple bonded with thermal epoxy for higher robustness.
     </p>
 
     <h3>Material Selection</h3>
     <p>
-      The mounting bracket was fabricated from PETG to improve thermal tolerance relative to PLA. 
-      The heat block was mechanically offset from the PETG structure using M2.5 spacers to limit heat transfer 
+      The mounting bracket was fabricated from PETG to improve thermal tolerance relative to PLA.
+      The heat block was mechanically offset from the PETG structure using M2.5 spacers to limit heat transfer
       to load-bearing components.
     </p>
 
     <figure class="project-figure">
-      <img src="../assets/rPET-hotend.webp" alt="Custom Hot End Assembly" style="width: 100%; max-width: 600px;" loading="lazy">
+      <img src="../assets/rPET-hotend.png" alt="Custom Hot End Assembly" class="figure-width-600" loading="lazy" width="800" height="600" decoding="async">
       <figcaption>Modified hot end assembly with custom thermocouple mounting.</figcaption>
     </figure>
   </section>
 
   <section class="content-section">
     <h2 id="iterations">5. Iterative Development</h2>
-    
+
     <h3>Iteration 1 (Current)</h3>
     <p>
-      Focused on proof of concept. Filament diameter exhibited strong sensitivity to pull speed, and the absence of 
+      Focused on proof of concept. Filament diameter exhibited strong sensitivity to pull speed, and the absence of
       active cooling limited stability. Variations in bottle thickness caused inconsistent melt flow.
     </p>
 
     <h3>Iteration 2 (In Development)</h3>
     <p>
-      Replaces the commercial hot end with a custom CNC-machined assembly and modular nozzles. 
+      Replaces the commercial hot end with a custom CNC-machined assembly and modular nozzles.
       Adds active cooling for both the hot end and extruded filament. Transitions control to a custom ESP32-based PCB.
     </p>
 
     <div class="iteration-grid">
       <div class="iteration-card">
-        <img src="../assets/rPET-pcb-1.webp" alt="Custom PCB Design" class="iteration-img" loading="lazy">
+        <img src="../assets/rPET-pcb-1.webp" alt="Custom PCB Design" class="iteration-img" loading="lazy" width="800" height="800" decoding="async">
         <div class="iteration-label">Custom PCB Layout</div>
       </div>
       <div class="iteration-card">
-        <img src="../assets/rPET-puller.webp" alt="Gear Reduced Puller" class="iteration-img" loading="lazy">
+        <img src="../assets/rPET-puller.webp" alt="Gear Reduced Puller" class="iteration-img" loading="lazy" width="800" height="800" decoding="async">
         <div class="iteration-label">Gear-Reduced Puller</div>
       </div>
       <div class="iteration-card">
-        <img src="../assets/rPET-modular.webp" alt="Modular Nozzle Design" class="iteration-img" loading="lazy">
+        <img src="../assets/rPET-modular.webp" alt="Modular Nozzle Design" class="iteration-img" loading="lazy" width="800" height="800" decoding="async">
         <div class="iteration-label">Modular Nozzle Block</div>
       </div>
     </div>
@@ -193,11 +204,11 @@
 
   <section class="content-section">
     <h2 id="stability">6. Process Stability & Quality Control</h2>
-    
+
     <h3>Diameter Consistency Challenges</h3>
     <p>
-      Recycled PET filament exhibits inherent dimensional instability due to post-extrusion shrinkage during cooling. 
-      This effect was amplified by inconsistent thermal input from a generic thermostat, resulting in frequent 
+      Recycled PET filament exhibits inherent dimensional instability due to post-extrusion shrinkage during cooling.
+      This effect was amplified by inconsistent thermal input from a generic thermostat, resulting in frequent
       temperature overshoot (~10°C). The absence of active cooling further increased thermal lag.
     </p>
 
@@ -211,10 +222,10 @@
 
   <section class="content-section">
     <h2 id="testing">7. Experimental Testing</h2>
-    
+
     <h3>Comparative Analysis</h3>
     <p>
-      Recycled filament was evaluated against commercial PETG using identical print settings (with reduced temperature for rPET). 
+      Recycled filament was evaluated against commercial PETG using identical print settings (with reduced temperature for rPET).
       Validation prints included vase-mode structures and stringing tests.
     </p>
 
@@ -226,13 +237,13 @@
     </ul>
 
     <figure class="project-figure">
-      <img src="../assets/rPET-prints.webp" alt="Comparison: Commercial PETG vs Recycled PET" style="width: 100%; max-width: 700px;" loading="lazy">
+      <img src="../assets/rPET-prints.webp" alt="Comparison: Commercial PETG vs Recycled PET" class="figure-width-700" loading="lazy" width="1000" height="600" decoding="async">
       <figcaption>Left: Commercial PETG. Right: Recycled PET Filament (This Project).</figcaption>
     </figure>
 
     <h3>Practical Applications</h3>
     <p>
-      Beyond test prints, the recycled PET filament was used to fabricate practical parts that addressed real needs within 
+      Beyond test prints, the recycled PET filament was used to fabricate practical parts that addressed real needs within
       my ongoing projects. These components provided immediate utility, requiring sufficient strength and dimensional reliability.
     </p>
   </section>
@@ -240,12 +251,12 @@
   <section class="content-section">
     <h2 id="tradeoffs">8. Limitations & Engineering Tradeoffs</h2>
     <p>
-      The current system prioritizes accessibility and modularity over full automation, resulting in unavoidable variability 
-      in filament diameter during manual pull extrusion. While this approach enables rapid iteration, it limits repeatability 
+      The current system prioritizes accessibility and modularity over full automation, resulting in unavoidable variability
+      in filament diameter during manual pull extrusion. While this approach enables rapid iteration, it limits repeatability
       relative to industrial systems.
     </p>
     <p>
-      Material variability inherent to post-consumer PET (wall thickness, prior thermal history) introduces additional 
+      Material variability inherent to post-consumer PET (wall thickness, prior thermal history) introduces additional
       uncertainty in melt behavior that cannot be fully mitigated through mechanical design alone.
     </p>
   </section>
@@ -262,21 +273,21 @@
   <section class="content-section">
     <h2 id="video">10. Project Video Presentation</h2>
     <p>Watch the rPET Machine V0 in action.</p>
-    
+
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/FDchUtvMtT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/FDchUtvMtT4" title="rPET Machine V0 demonstration" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </section>
 
   <section id="downloads" class="content-section">
     <h2>11. Project Documentation</h2>
     <p>Access the full technical report and design details.</p>
-    
+
     <a href="../assets/rPET-Report.pdf" download class="download-card">
-      <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <svg aria-hidden="true" focusable="false" class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
       </svg>
-      
+
       <h3>Download Full Report (PDF)</h3>
       <p>Click to save the technical documentation.</p>
     </a>
@@ -284,9 +295,9 @@
 
 </main>
 
-<div class="footer">
-  &copy; 2025 NeoOrbit Dynamics — Engineering Energy for Mars and Earth
-</div>
+<footer class="footer">
+  &copy; 2025 NeoOrbit — Engineering Energy for Mars and Earth
+</footer>
 
 </body>
 </html>

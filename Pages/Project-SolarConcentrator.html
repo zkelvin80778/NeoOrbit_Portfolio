@@ -3,15 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Solar Concentrator - NeoOrbit Dynamics</title>
+
+  <title>Solar Concentrator - NeoOrbit</title>
 
   <link rel="stylesheet" href="../style.css">
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/webp" href="../assets/NeoOrbit_Logo.webp">
+  <meta name="description" content="Explore the design, prototyping, sun tracking, and testing of the NeoOrbit 3D-printed solar concentrator.">
+  <link rel="canonical" href="https://neoorbit.org/Pages/Project-SolarConcentrator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NeoOrbit">
+  <meta property="og:title" content="Solar Concentrator - NeoOrbit">
+  <meta property="og:description" content="Explore the design, prototyping, sun tracking, and testing of the NeoOrbit 3D-printed solar concentrator.">
+  <meta property="og:url" content="https://neoorbit.org/Pages/Project-SolarConcentrator.html">
+  <meta property="og:image" content="https://neoorbit.org/assets/NeoOrbit_Logo.webp">
+  <script src="../site.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-<nav>
+<nav aria-label="Project sections">
   <a href="../index.html">Home</a>
   <a href="#abstract">Abstract</a>
   <a href="#overview">Overview</a>
@@ -23,16 +33,17 @@
   <a href="#testing">Testing</a>
   <a href="#future">Future</a>
   <a href="#video">Video</a>
-  <a href="#downloads">Docs</a> </nav>
+  <a href="#downloads">Docs</a>
+</nav>
 
 <header>
-  <div class="header-bg" style="background-image: url('../assets/3DHeatPump Banner.webp');"></div>
-  <div class="vignette-mask"></div>
+  <div class="header-bg header-bg--solar" aria-hidden="true"></div>
+  <div class="vignette-mask" aria-hidden="true"></div>
   <h1>3D-Printed Solar Concentrator</h1>
   <p class="tagline">Maker Portfolio | Kelvin Zhang</p>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
 
   <section class="content-section">
     <h2 id="abstract">Abstract</h2>
@@ -61,7 +72,7 @@
 
   <section class="content-section">
     <h2 id="overview">1. Executive Overview</h2>
-    
+
     <h3>Problem Statement</h3>
     <p>
       Sustained, crewed exploration of Mars requires energy systems that can operate under reduced solar
@@ -83,7 +94,7 @@
       both as a heat exchanger for a water-based heat pump system and as a mounting surface for thermoelectric
       generator modules.
     </p>
-    
+
     <div class="highlight-box">
       <strong>Key Benefit:</strong> By decoupling optical collection from electrical conversion and maintaining alignment
       through active sun tracking, the system prioritizes precision and scalability over large photovoltaic surface area.
@@ -104,7 +115,7 @@
 
   <section class="content-section">
     <h2 id="requirements">2. Design Motivation & Constraints</h2>
-    
+
     <div class="grid-container">
       <div class="grid-item">
         <h3>Energy Density Limits</h3>
@@ -139,13 +150,13 @@
 
     <h3>Dual-Role Central Element</h3>
     <p>
-      The central interface acts as both a heat-pump heat exchanger and a thermoelectric generator interface. 
+      The central interface acts as both a heat-pump heat exchanger and a thermoelectric generator interface.
       Combining these roles concentrates optical alignment, thermal collection, and conversion interfaces into a
       single, mechanically rigid reference point. This reduces part count and alignment degrees of freedom.
     </p>
 
     <figure class="project-figure">
-      <img src="../assets/optics-diagram-2.webp" alt="System Architecture Diagram" style="width: 100%; max-width: 600px;" loading="lazy">
+      <img src="../assets/optics-diagram-2.png" alt="System Architecture Diagram" class="figure-width-600" loading="lazy" width="1200" height="800" decoding="async">
       <figcaption>Optical path and mirror arrangement.</figcaption>
     </figure>
   </section>
@@ -160,18 +171,18 @@
     <h3>Segmentation & Focal Strategy</h3>
     <p>
       A hexagonal mirror outline was used to maximize packing efficiency around a central target.
-      Instead of forcing all segments to intersect directly at the receiver, the converging beams are intercepted by an 
+      Instead of forcing all segments to intersect directly at the receiver, the converging beams are intercepted by an
       offset secondary mirror that redirects the concentrated light onto the central receiver plate.
     </p>
 
     <figure class="project-figure">
-      <img src="../assets/hex-tiling.webp" alt="Hexagonal Mirror Tiling Strategy" style="width: 100%; max-width: 400px;" loading="lazy">
+      <img src="../assets/hex-tiling.webp" alt="Hexagonal Mirror Tiling Strategy" class="figure-width-400" loading="lazy" width="800" height="800" decoding="async">
       <figcaption>Mirror tiling strategy maximizing packing efficiency.</figcaption>
     </figure>
 
     <h3>Iterative Prototyping</h3>
     <p>The design evolved through three major iterations to solve manufacturing defects:</p>
-    
+
     <div class="timeline">
       <div class="timeline-item">
         <strong>Iteration 1</strong>
@@ -186,18 +197,18 @@
         Modular design with separated reflective surfaces. <br><em>Result:</em> Better optical quality, though fragile aluminum foil remains a limitation.
       </div>
     </div>
-    
+
     <div class="iteration-grid">
       <div class="iteration-card">
-        <img src="../assets/iteration-1.webp" alt="Iteration 1 Prototype" class="iteration-img" loading="lazy">
+        <img src="../assets/iteration-1.webp" alt="Iteration 1 Prototype" class="iteration-img" loading="lazy" width="800" height="800" decoding="async">
         <div class="iteration-label">Iteration 1</div>
       </div>
       <div class="iteration-card">
-        <img src="../assets/iteration-2.webp" alt="Iteration 2 Prototype" class="iteration-img" loading="lazy">
+        <img src="../assets/iteration-2.webp" alt="Iteration 2 Prototype" class="iteration-img" loading="lazy" width="800" height="800" decoding="async">
         <div class="iteration-label">Iteration 2</div>
       </div>
       <div class="iteration-card">
-        <img src="../assets/iteration-3.webp" alt="Iteration 3 Prototype" class="iteration-img" loading="lazy">
+        <img src="../assets/iteration-3.webp" alt="Iteration 3 Prototype" class="iteration-img" loading="lazy" width="800" height="800" decoding="async">
         <div class="iteration-label">Iteration 3</div>
       </div>
     </div>
@@ -205,25 +216,25 @@
 
   <section class="content-section">
     <h2 id="tracking">5. Tracking & Alignment</h2>
-    
+
     <h3>LDR Sensor Array</h3>
     <p>
-      The system uses a Light Dependent Resistor (LDR) array to track the sun. Four sensors are arranged in a quadrant. 
+      The system uses a Light Dependent Resistor (LDR) array to track the sun. Four sensors are arranged in a quadrant.
       When the system is aligned, all four sensors report equal light intensity.
     </p>
 
     <figure class="project-figure">
-      <img src="../assets/ldr-pcb-layout.webp" alt="Custom LDR Board Design" style="width: 100%; max-width: 500px;" loading="lazy">
+      <img src="../assets/ldr-pcb-layout.webp" alt="Custom LDR Board Design" class="figure-width-500" loading="lazy" width="1000" height="1000" decoding="async">
       <figcaption>Custom PCB design for the LDR sensor module.</figcaption>
     </figure>
 
     <p>
-      The control objective is not absolute sun position, but the minimization of differential light intensity. 
+      The control objective is not absolute sun position, but the minimization of differential light intensity.
       This allows the system to self-correct using simple servo motors.
     </p>
 
     <figure class="project-figure">
-      <img src="../assets/tracking-vis.webp" alt="Sensor Quad Visualization" style="width: 100%; max-width: 600px;" loading="lazy">
+      <img src="../assets/tracking-vis.webp" alt="Sensor Quad Visualization" class="figure-width-600" loading="lazy" width="1200" height="600" decoding="async">
       <figcaption>Real-time sensor data visualization: Aligned vs. Misaligned states.</figcaption>
     </figure>
 
@@ -231,14 +242,14 @@
     <p>
       Maintaining direct optical exposure to the Sun throughout the day maximizes the total collected energy for a
       fixed system footprint. Even small angular misalignments reduce the duration of effective concentration.
-      Precise alignment increases overall system efficiency by sustaining optimal exposure over time rather than 
+      Precise alignment increases overall system efficiency by sustaining optimal exposure over time rather than
       relying on increased mirror count.
     </p>
   </section>
 
   <section class="content-section">
     <h2 id="thermal">6. Thermal Interface & Energy Flow</h2>
-    
+
     <h3>Concentrated Flux Interface</h3>
     <p>
       Converging sunlight from the mirror system is directed onto a central receiver plate, where optical energy is
@@ -249,23 +260,23 @@
     <h3>Material Considerations</h3>
     <p>
       Structural components were fabricated from PETG to simulate the use of plastics in a Martian
-      mission context, inspired by the potential reuse of plastic waste. For optical surfaces, aluminum foil was used 
+      mission context, inspired by the potential reuse of plastic waste. For optical surfaces, aluminum foil was used
       to approximate thin reflective sheet materials commonly found on spacecraft.
     </p>
-    
+
     <p>
-      <strong>Loss Mechanisms:</strong> Energy losses arise from imperfect reflectivity and beam divergence. 
+      <strong>Loss Mechanisms:</strong> Energy losses arise from imperfect reflectivity and beam divergence.
       The aluminum foil (~80-90% reflectance) introduces greater scattering compared to glass-backed mirrors.
     </p>
   </section>
 
   <section class="content-section">
     <h2 id="testing">7. Experimental Testing & Observations</h2>
-    
+
     <h3>Testing Setup</h3>
     <p>
-      A 1:5 scale prototype was constructed to enable rapid fabrication. The system used four custom LDR sensor modules, 
-      two servo motors, and an Arduino Nano. Testing was performed indoors using a handheld flashlight as a 
+      A 1:5 scale prototype was constructed to enable rapid fabrication. The system used four custom LDR sensor modules,
+      two servo motors, and an Arduino Nano. Testing was performed indoors using a handheld flashlight as a
       controllable light source.
     </p>
 
@@ -290,21 +301,21 @@
   <section class="content-section">
     <h2 id="video">9. Project Video Presentation</h2>
     <p>Watch the solar concentrator and tracking system in action.</p>
-    
+
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/BrU9k6tFQZ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/BrU9k6tFQZ0" title="Solar concentrator and tracking demonstration" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </section>
 
   <section id="downloads" class="content-section">
     <h2>10. Project Documentation</h2>
     <p>Access the full technical report and design details.</p>
-    
+
     <a href="../assets/SolarConcentrator-Report.pdf" download class="download-card">
-      <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <svg aria-hidden="true" focusable="false" class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
       </svg>
-      
+
       <h3>Download Full Report (PDF)</h3>
       <p>Click to save the technical documentation.</p>
     </a>
@@ -312,9 +323,9 @@
 
 </main>
 
-<div class="footer">
-  &copy; 2025 NeoOrbit Dynamics — Engineering Energy for Mars and Earth
-</div>
+<footer class="footer">
+  &copy; 2025 NeoOrbit — Engineering Energy for Mars and Earth
+</footer>
 
 </body>
 </html>

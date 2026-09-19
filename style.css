@@ -1,18 +1,12 @@
-/* ─────────────────────────────────────────────────────────────
-   1. CUSTOM FONT LOADING (Self-Hosted Nasalization)
-   ───────────────────────────────────────────────────────────── */
 @font-face {
   font-family: 'Nasalization';
-  /* Ensure 'Nasalization.otf' is in your assets folder. 
-     If it is .ttf, change this to .ttf */
+
   src: url('assets/Nasalization.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   2. CUSTOM SCROLLBAR (Floating Pill)
-   ───────────────────────────────────────────────────────────── */
 html {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
@@ -37,19 +31,18 @@ html {
   background-color: #ffffff;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   3. GLOBAL VARIABLES & RESET
-   ───────────────────────────────────────────────────────────── */
 :root {
-  --bg-color: #000000;       /* Pure Black */
-  --text-main: #ffffff;      /* Pure White */
-  --text-muted: #cccccc;     /* Light Grey for subtext */
-  --accent-color: #ffffff;   /* Solid White Accents */
-  --card-bg: #111111;        /* Very dark grey for cards */
+  --bg-color: #000000;
+  --text-main: #ffffff;
+  --text-muted: #cccccc;
+  --accent-color: #ffffff;
+  --card-bg: #111111;
+  --nav-height: 8rem;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 1rem);
 }
 
 body {
@@ -75,47 +68,41 @@ a:hover {
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
-/* Add a dark grey background to images while they load (Lazy Loading Fix) */
 .header-bg, .project-image, .project-figure img, .iteration-img {
-  background-color: #222222; 
+  background-color: #222222;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   4. NAVIGATION (Fixed & Transparent)
-   ───────────────────────────────────────────────────────────── */
 nav {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5); 
-  padding: 0.75rem; 
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.75rem;
   z-index: 1000;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
   box-sizing: border-box;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 nav a {
-  margin: 0.5rem 1rem; 
+  margin: 0.5rem 1rem;
   font-weight: bold;
-  font-size: 0.95rem; 
+  font-size: 0.95rem;
 }
 
 nav a:hover {
   color: var(--accent-color);
 }
 
-/* ─────────────────────────────────────────────────────────────
-   5. HEADER & BANNER
-   ───────────────────────────────────────────────────────────── */
 header {
   position: relative;
   height: 60vh;
+  min-height: calc(var(--nav-height) + 16rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -124,68 +111,68 @@ header {
   overflow: hidden;
   padding: 0 20px;
   background-color: black;
-  z-index: 0; 
+  z-index: 0;
 }
 
-/* --- BACKGROUND IMAGES --- */
 .header-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('assets/Earth-Mars.webp'); 
+  background-image: url('assets/Earth-Mars.webp');
   background-size: cover;
   background-position: center;
-  z-index: 1; 
-  opacity: 1; 
-  filter: brightness(1.3) contrast(1.1); 
+  z-index: 1;
+  opacity: 1;
+  filter: brightness(1.3) contrast(1.1);
 }
 
-.header-bg[style*="background-image"] {
-  opacity: 0.8 !important; 
-  filter: none !important; 
+.header-bg--solar, .header-bg--rpet {
+  opacity: 0.8;
+  filter: none;
 }
 
-/* --- VIGNETTE MASK --- */
+.header-bg--solar { background-image: url('assets/3DHeatPump Banner.webp'); }
+.header-bg--rpet { background-image: url('assets/rPET-Banner.webp'); }
+
 .vignette-mask {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 40%; 
+  height: 40%;
   background: linear-gradient(to bottom, transparent 0%, black 100%);
-  z-index: 2; 
+  z-index: 2;
   pointer-events: none;
 }
 
-/* --- LOGO --- */
 header img {
-  width: 120px; 
+  width: 120px;
+  height: auto;
   position: relative;
-  z-index: 10; 
+  z-index: 10;
   filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
-  margin-bottom: 0.5rem; 
+  margin-bottom: 0.5rem;
 }
 
-/* --- TYPOGRAPHY --- */
 header h1 {
   font-family: 'Nasalization', sans-serif;
   font-size: 3.5rem;
-  font-weight: normal; 
+  font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin: 0; 
-  line-height: 1.1; 
+  margin: 0;
+  line-height: 1.1;
   position: relative;
-  z-index: 10; 
-  text-shadow: 0 4px 8px rgba(0,0,0,1); 
+  z-index: 10;
+  text-shadow: 0 4px 8px rgba(0,0,0,1);
 }
 
 header p {
   font-size: 1.2rem;
-  font-weight: normal; 
-  color: #ffffff;   
+  font-weight: normal;
+  color: #ffffff;
   letter-spacing: 1px;
   margin-top: 0.5rem;
   position: relative;
@@ -193,14 +180,6 @@ header p {
   text-shadow: 0 2px 4px rgba(0,0,0,1);
 }
 
-/* ─────────────────────────────────────────────────────────────
-   6. HOME PAGE: PROJECT CARDS
-   ───────────────────────────────────────────────────────────── */
-section {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-}
 
 .project-card {
   display: flex;
@@ -210,7 +189,7 @@ section {
   margin-bottom: 24px;
   transition: transform 0.6s ease, box-shadow 0.6s ease;
   border: 1px solid #222;
-  position: relative; 
+  position: relative;
 }
 
 .project-card:hover {
@@ -224,7 +203,7 @@ section {
   position: relative;
   background-size: cover;
   background-position: center;
-  min-height: 200px; 
+  min-height: 200px;
 }
 
 .project-image::after {
@@ -236,7 +215,6 @@ section {
   pointer-events: none;
 }
 
-/* Specific Project Images */
 .project-image-heatpump {
   background-image: url('assets/3DHeatPump.webp');
 }
@@ -245,18 +223,15 @@ section {
   background-image: url('assets/rPET-Banner.webp');
 }
 
-.project-image-placeholder {
-  background-image: url('assets/PlaceHolder.webp');
-}
 
-/* FIXED ALIGNMENT */
 .project-content {
   flex: 1;
+  min-width: 0;
   position: relative;
   z-index: 2;
-  margin-left: -40px; 
-  padding: 1rem 1.5rem 1.5rem 1.5rem; 
-  display: block; 
+  margin-left: -40px;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  display: block;
 }
 
 .project-content h3 {
@@ -270,7 +245,7 @@ section {
 .project-description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;      
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.6em;
@@ -278,13 +253,11 @@ section {
   margin-bottom: 0.5rem;
 }
 
-.project-card:hover .project-description {
+.project-card:hover .project-description,
+.project-card-link:focus-visible .project-description {
   -webkit-line-clamp: unset;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   7. PROJECT PAGE CONTENT
-   ───────────────────────────────────────────────────────────── */
 .content-section {
   max-width: 900px;
   margin: 4rem auto;
@@ -308,7 +281,7 @@ section {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: 2rem;
   margin-top: 1rem;
 }
@@ -343,8 +316,8 @@ section {
 .timeline {
   margin-top: 3rem;
   margin-left: 1rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.2); 
-  padding-left: 2.5rem; 
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: 2.5rem;
 }
 
 .timeline-item {
@@ -365,7 +338,7 @@ section {
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: calc(-2.5rem - 6px); 
+  left: calc(-2.5rem - 6px);
   top: 5px;
   width: 11px;
   height: 11px;
@@ -384,7 +357,7 @@ section {
 
 .iteration-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
   gap: 1.5rem;
   margin-top: 3rem;
   padding-bottom: 1rem;
@@ -406,7 +379,8 @@ section {
 
 .iteration-img {
   width: 100%;
-  aspect-ratio: 1 / 1; 
+  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 0.5rem;
@@ -432,6 +406,9 @@ section {
   text-align: center;
 }
 .project-figure img {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
   border-radius: 8px;
   border: 1px solid #333;
 }
@@ -457,7 +434,7 @@ section {
 .video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   border-radius: 8px;
@@ -466,6 +443,7 @@ section {
 }
 
 .video-container iframe {
+  border: 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -473,9 +451,6 @@ section {
   height: 100%;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   8. DOWNLOAD CARD (New)
-   ───────────────────────────────────────────────────────────── */
 .download-card {
   display: flex;
   flex-direction: column;
@@ -488,7 +463,7 @@ section {
   margin-top: 1.5rem;
   text-align: center;
   transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
-  text-decoration: none; /* Removes underline */
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -525,9 +500,6 @@ section {
   opacity: 1;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   9. FOOTER
-   ───────────────────────────────────────────────────────────── */
 .footer {
   text-align: center;
   padding: 3rem 1rem;
@@ -538,50 +510,81 @@ section {
   background-color: black;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   10. MOBILE OPTIMIZATION
-   ───────────────────────────────────────────────────────────── */
 @media screen and (max-width: 768px) {
-  
+  :root { --nav-height: 3rem; }
+
   nav {
-    flex-wrap: nowrap;         
-    overflow-x: auto;          
-    justify-content: flex-start; 
-    padding: 0.5rem 0;         
-    -webkit-overflow-scrolling: touch; 
-    scrollbar-width: none;  
-    -ms-overflow-style: none;  
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 0.5rem 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
-  
-  nav::-webkit-scrollbar { 
-    display: none; 
+
+  nav::-webkit-scrollbar {
+    display: none;
   }
 
   nav a {
-    flex: 0 0 auto;           
-    margin: 0 0.75rem;        
-    font-size: 0.85rem;       
-    white-space: nowrap;      
+    flex: 0 0 auto;
+    margin: 0 0.75rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
   }
-  
+
   nav a:first-child {
     margin-left: 1rem;
   }
-  
+
   nav a:last-child {
     margin-right: 1rem;
   }
 
   header {
-    height: 50vh; 
+    height: 50vh;
   }
-  
+
   header h1 {
-    font-size: 2rem; 
+    font-size: 2rem;
   }
-  
+
   .tagline {
     font-size: 1rem;
-    padding: 0 1rem; 
+    padding: 0 1rem;
   }
 }
+
+/* Shared media sizing keeps each original figure's intended width. */
+.figure-width-400 { max-width: 400px; }
+.figure-width-500 { max-width: 500px; }
+.figure-width-600 { max-width: 600px; }
+.figure-width-700 { max-width: 700px; }
+.figure-width-800 { max-width: 800px; }
+
+/* Keyboard access uses the existing white accent. */
+a:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
+.skip-link { position: fixed; top: 0.5rem; left: 1rem; z-index: 2000; padding: 0.5rem 1rem; background: var(--bg-color); transform: translateY(-200%); }
+.skip-link:focus { transform: translateY(0); }
+.project-card-link { display: block; }
+.project-card-link:focus-visible .project-card { border-color: var(--accent-color); }
+main:focus { outline: none; }
+.content-section { overflow-wrap: anywhere; }
+header h1 { overflow-wrap: anywhere; max-width: 100%; }
+
+/* Keep the existing image, fade, and content usable on narrow screens. */
+@media screen and (max-width: 600px) {
+  .project-card { flex-direction: column; }
+  .project-image { flex-basis: auto; min-height: 200px; }
+  .project-image::after { top: 25%; left: 0; width: 100%; height: 75%; background: linear-gradient(to bottom, rgba(30,30,30,0) 0%, var(--card-bg) 100%); }
+  .project-content { margin-left: 0; margin-top: -40px; }
+}
+@media (hover: none) {
+  .project-description { -webkit-line-clamp: unset; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
