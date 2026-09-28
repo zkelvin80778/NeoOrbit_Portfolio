@@ -6,7 +6,7 @@
 
   <title>rPET Machine V0 - NeoOrbit</title>
 
-  <link rel="stylesheet" href="../style.css?v=20260919">
+  <link rel="stylesheet" href="../style.css?v=20260928">
   <link rel="icon" type="image/webp" href="../assets/NeoOrbit_Logo.webp">
   <meta name="description" content="Explore the NeoOrbit rPET Machine V0: a modular system that converts post-consumer plastic bottles into 3D printing filament.">
   <link rel="canonical" href="https://neoorbit.org/Pages/Project-rPET.html">
@@ -16,13 +16,34 @@
   <meta property="og:description" content="Explore the NeoOrbit rPET Machine V0: a modular system that converts post-consumer plastic bottles into 3D printing filament.">
   <meta property="og:url" content="https://neoorbit.org/Pages/Project-rPET.html">
   <meta property="og:image" content="https://neoorbit.org/assets/NeoOrbit_Logo.webp">
-  <script src="../site.js?v=20260919" defer></script>
+  <script src="../site.js?v=20260928" defer></script>
 </head>
-<body>
+<body class="project-page">
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<nav aria-label="Project sections">
-  <a href="../index.html">Home</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <a class="brand" href="../index.html" aria-label="NeoOrbit home"><img src="../assets/NeoOrbit_Logo.webp" alt="NeoOrbit Logo" width="500" height="500" decoding="async"></a>
+    <div class="site-links">
+      <a href="../index.html#mission">Mission</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="header-bg header-bg--rpet" aria-hidden="true"></div>
+  <div class="vignette-mask" aria-hidden="true"></div>
+  <div class="hero-content">
+  <h1>rPET Machine V0</h1>
+  <p class="tagline">Maker Portfolio | Kelvin Zhang</p>
+  </div>
+</header>
+
+<main id="main-content" class="project-layout" tabindex="-1">
+<nav class="section-index" aria-label="Project sections">
+  <p class="index-label">On this page</p>
   <a href="#abstract">Abstract</a>
   <a href="#overview">Overview</a>
   <a href="#requirements">Motivation</a>
@@ -36,15 +57,7 @@
   <a href="#video">Video</a>
   <a href="#downloads">Docs</a>
 </nav>
-
-<header>
-  <div class="header-bg header-bg--rpet" aria-hidden="true"></div>
-  <div class="vignette-mask" aria-hidden="true"></div>
-  <h1>rPET Machine V0</h1>
-  <p class="tagline">Maker Portfolio | Kelvin Zhang</p>
-</header>
-
-<main id="main-content" tabindex="-1">
+<article class="project-article" aria-label="Project case study">
 
   <section class="content-section">
     <h2 id="abstract">Abstract</h2>
@@ -127,6 +140,8 @@
 
   <section class="content-section">
     <h2 id="architecture">3. System Architecture</h2>
+    <div class="media-row">
+      <div class="media-copy">
 
     <h3>Material Flow Path</h3>
     <ul class="styled-list">
@@ -142,14 +157,19 @@
       tolerated. This reduces system complexity while enabling direct observation and iterative refinement of material behavior.
     </p>
 
-    <figure class="project-figure">
+
+      </div>
+      <figure class="project-figure">
       <img src="../assets/rPET-architecture.webp" alt="System Architecture: Prep, Extrusion, Drawing" class="figure-width-800" loading="lazy" width="1200" height="600" decoding="async">
       <figcaption>Feedstock preparation, thermal extrusion, and filament drawing stages.</figcaption>
     </figure>
+    </div>
   </section>
 
   <section class="content-section">
     <h2 id="mechanical">4. Mechanical & Thermal Design</h2>
+    <div class="media-row">
+      <div class="media-copy">
 
     <h3>Extrusion Assembly</h3>
     <p>
@@ -165,10 +185,13 @@
       to load-bearing components.
     </p>
 
-    <figure class="project-figure">
+
+      </div>
+      <figure class="project-figure">
       <img src="../assets/rPET-hotend.png" alt="Custom Hot End Assembly" class="figure-width-600" loading="lazy" width="800" height="600" decoding="async">
       <figcaption>Modified hot end assembly with custom thermocouple mounting.</figcaption>
     </figure>
+    </div>
   </section>
 
   <section class="content-section">
@@ -222,6 +245,8 @@
 
   <section class="content-section">
     <h2 id="testing">7. Experimental Testing</h2>
+    <div class="media-row">
+      <div class="media-copy">
 
     <h3>Comparative Analysis</h3>
     <p>
@@ -236,10 +261,13 @@
       <li><strong>Unexpected Behaviors:</strong> Despite its recycled origin, the rPET filament demonstrated sufficient continuity for functional printing even without closed-loop diameter control.</li>
     </ul>
 
-    <figure class="project-figure">
+
+      </div>
+      <figure class="project-figure">
       <img src="../assets/rPET-prints.webp" alt="Comparison: Commercial PETG vs Recycled PET" class="figure-width-700" loading="lazy" width="1000" height="600" decoding="async">
       <figcaption>Left: Commercial PETG. Right: Recycled PET Filament (This Project).</figcaption>
     </figure>
+    </div>
 
     <h3>Practical Applications</h3>
     <p>
@@ -287,12 +315,12 @@
       <svg aria-hidden="true" focusable="false" class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
       </svg>
-
-      <h3>Download Full Report (PDF)</h3>
-      <p>Click to save the technical documentation.</p>
+      <div class="download-copy"><h3>Download Full Report (PDF)</h3>
+      <p>Click to save the technical documentation.</p></div>
     </a>
   </section>
 
+</article>
 </main>
 
 <footer class="footer">
