@@ -1,6 +1,6 @@
 /* Match anchor offsets to the navigation after wrapping, zooming, or font loading. */
 (() => {
-  const nav = document.querySelector('nav');
+  const nav = document.querySelector('.site-nav');
   if (!nav) return;
 
   const updateOffset = () => {

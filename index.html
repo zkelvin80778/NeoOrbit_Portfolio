@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NeoOrbit</title>
 
-  <link rel="stylesheet" href="style.css?v=20260919">
+  <link rel="stylesheet" href="style.css?v=20260928">
   <link rel="icon" type="image/webp" href="assets/NeoOrbit_Logo.webp">
 
   <meta name="description" content="NeoOrbit is a student-led innovation lab engineering sustainable technologies for Earth and beyond.">
@@ -16,30 +16,36 @@
   <meta property="og:description" content="NeoOrbit is a student-led innovation lab engineering sustainable technologies for Earth and beyond.">
   <meta property="og:url" content="https://neoorbit.org/">
   <meta property="og:image" content="https://neoorbit.org/assets/NeoOrbit_Logo.webp">
-  <script src="site.js?v=20260919" defer></script>
+  <script src="site.js?v=20260928" defer></script>
 </head>
-<body>
+<body class="home-page">
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<nav aria-label="Main navigation">
-  <a href="#mission">Mission</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <a class="brand" href="index.html" aria-label="NeoOrbit home"><img src="assets/NeoOrbit_Logo.webp" alt="NeoOrbit Logo" width="500" height="500" decoding="async"></a>
+    <div class="site-links">
+      <a href="#mission">Mission</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </nav>
 
-<header>
+<header class="hero">
   <div class="header-bg" aria-hidden="true"></div>
   <div class="vignette-mask" aria-hidden="true"></div>
 
-  <img src="assets/NeoOrbit_Logo.webp" alt="NeoOrbit Logo" class="logo" width="500" height="500" decoding="async">
-
+  <div class="hero-content">
   <h1>NeoOrbit</h1>
 
   <p class="tagline">Engineering tomorrow's sustainability, today.</p>
+  <a class="outline-link" href="#projects">Explore projects <span aria-hidden="true">↗</span></a>
+  </div>
 </header>
 
-<main id="main-content" tabindex="-1">
-<section id="mission" class="content-section">
+<main id="main-content" class="home-content" tabindex="-1">
+<section id="mission" class="content-section mission-row">
   <h2>Our Mission</h2>
   <p>
     NeoOrbit is a student-led innovation lab that engineers sustainable technologies for both terrestrial and extraterrestrial applications.
@@ -49,9 +55,9 @@
 
 <section id="projects" class="content-section">
   <h2>Projects</h2>
+  <div class="project-grid">
 
-  <a href="Pages/Project-SolarConcentrator.html" class="project-card-link">
-    <div class="project-card">
+  <article class="project-card">
       <div class="project-image project-image-heatpump"></div>
       <div class="project-content">
         <h3>3D-Printed Solar Concentrator</h3>
@@ -61,12 +67,11 @@
         <div class="project-status">
           <strong>Status:</strong> TRL 3
         </div>
+        <a href="Pages/Project-SolarConcentrator.html" class="case-study-link">View case study <span class="sr-only">— 3D-Printed Solar Concentrator</span><span aria-hidden="true">↗</span></a>
       </div>
-    </div>
-  </a>
+  </article>
 
-  <a href="Pages/Project-rPET.html" class="project-card-link">
-    <div class="project-card">
+  <article class="project-card">
       <div class="project-image project-image-rpet"></div>
       <div class="project-content">
         <h3>rPET Machine V0</h3>
@@ -76,12 +81,14 @@
         <div class="project-status">
           <strong>Status:</strong> TRL 4
         </div>
+        <a href="Pages/Project-rPET.html" class="case-study-link">View case study <span class="sr-only">— rPET Machine V0</span><span aria-hidden="true">↗</span></a>
       </div>
-    </div>
-  </a>
+  </article>
 
+  </div>
 </section>
 
+<div class="contact-grid">
 <section id="contact" class="content-section">
   <h2>Contact</h2>
   <p>Email: <a href="mailto:contact@neoorbit.me">contact@neoorbit.me</a></p>
@@ -100,6 +107,7 @@
   </div>
 </section>
 
+</div>
 </main>
 
 <footer class="footer">

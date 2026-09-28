@@ -12,9 +12,15 @@ The static portfolio for [neoorbit.org](https://neoorbit.org), featuring the sol
 
 No build step or runtime dependencies are required. Serve the repository with any static HTTP server for local preview.
 
+## Layout
+
+All three pages share the compact global navigation and image hero. Nasalization remains exclusive to the hero title; the existing system font stack is used everywhere else. Original assets and technical content are preserved.
+
+The homepage presents two project cards side by side from 900px, with complete descriptions and explicit case-study links. Case studies use a 200px sticky section index from 1100px, a wrapping index below that width, and text/figure pairs from 900px. Figures use proportional sizing and remain fully visible. Anchor offsets track only `.site-nav`.
+
 ## Validation
 
-Run `node scripts/check-site.cjs` and `node --check site.js`. The same checks run on GitHub for pushes and pull requests. Check all three pages at narrow, tablet, and desktop widths when changing layout; verify section links below the fixed menu and test keyboard navigation.
+Run `node scripts/check-site.cjs` and `node --check site.js`. The same checks run on GitHub for pushes and pull requests. Check all three pages at 360px, 768px, 1024px, and 1440px widths, plus 200% browser zoom, when changing layout; verify section links below the fixed menu and test keyboard navigation. Keep original URLs, heading levels, section IDs, report links, and asset files intact.
 
 ## Hosting and contact
 
